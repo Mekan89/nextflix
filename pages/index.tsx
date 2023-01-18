@@ -13,7 +13,11 @@ export default function Home() {
     return (
         <>
             <Hero />
+<<<<<<< HEAD
             <Container size='xl'>
+=======
+            <Container size='xl' bg='#fff'>
+>>>>>>> 624d06a (movie app main page)
                 <MovieList title='New movies' />
                 <MovieList title='New series' />
             </Container>

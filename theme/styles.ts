@@ -1,5 +1,6 @@
 import { CSSObject, MantineTheme } from "@mantine/core";
 
+<<<<<<< HEAD
 export const customColors = {
     dark: "#0a1016",
 
@@ -22,6 +23,11 @@ export const navLink = (theme: MantineTheme): CSSObject => ({
     position: "relative",
     cursor: "pointer",
     fontWeight: "bold",
+=======
+export const navLink = ({ colors, colorScheme, fn, shadows }: MantineTheme): CSSObject => ({
+    position: "relative",
+    cursor: "pointer",
+>>>>>>> 624d06a (movie app main page)
     "::after": {
         content: "''",
         position: "absolute",
@@ -29,7 +35,11 @@ export const navLink = (theme: MantineTheme): CSSObject => ({
         height: 3,
         bottom: -5,
         left: 0,
+<<<<<<< HEAD
         backgroundColor: customColors.primary,
+=======
+        backgroundColor: colors.blue,
+>>>>>>> 624d06a (movie app main page)
         transformOrigin: "bottom left",
         transition: "transform 0.25s ease-out",
         transform: "scaleX(0)",
@@ -39,6 +49,7 @@ export const navLink = (theme: MantineTheme): CSSObject => ({
     },
 });
 
+<<<<<<< HEAD
 export const filledBtn = (theme: MantineTheme): CSSObject => ({
     backgroundColor: customColors.primary,
     transition: "0.3s",
@@ -73,3 +84,11 @@ export const outlineBtn = (theme: MantineTheme): CSSObject => ({
 //         // },
 //     },
 // }),
+=======
+// button: {
+//     "&, &:hover": {
+//         backgroundColor: theme.fn.variant({ variant: "light", color: theme.primaryColor }).background,
+//         color: theme.fn.variant({ variant: "light", color: theme.primaryColor }).color,
+//     },
+// },
+>>>>>>> 624d06a (movie app main page)

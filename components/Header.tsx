@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import { Burger, Container, createStyles, Group, Header as MantineHeader, NavLink, Paper, Text, Transition } from "@mantine/core";
 import { useDisclosure, useWindowScroll } from "@mantine/hooks";
 import Link from "next/link";
@@ -129,12 +130,36 @@ const Header = ({}) => {
                         <Text component={Link} href='/' fz={26} c='blue.8' fw='bold'>
                             NEXTFLIX
                         </Text>
+=======
+import { Burger, Container, Group, Header as MantineHeader, Text, Title } from "@mantine/core";
+import { useState } from "react";
+
+import Search from "./Search";
+
+const Header = ({}) => {
+    const [open, setOpen] = useState(false);
+
+    return (
+        <MantineHeader height={70}>
+            <Container size={"xl"}>
+                <Group noWrap position='apart' h={70}>
+                    <Group>
+                        <Burger opened={open} onClick={() => setOpen(!open)} color='#a1a1a1' size={18} />
+
+                        <Title order={2} c='blue'>
+                            Flixnet
+                        </Title>
+>>>>>>> 624d06a (movie app main page)
                     </Group>
 
                     <Search />
                     <Group>
                         {/* <ThemeToggle /> */}
+<<<<<<< HEAD
                         <Text sx={navLink}>Login</Text>
+=======
+                        <Text fw={700}>Login</Text>
+>>>>>>> 624d06a (movie app main page)
                     </Group>
                 </Group>
             </Container>

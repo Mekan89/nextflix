@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import { MantineThemeComponents } from "@mantine/styles/lib/theme/types/MantineTheme";
 
 export const components: MantineThemeComponents = {
@@ -14,6 +15,17 @@ export const components: MantineThemeComponents = {
             //     xl: 1420,
             // },
             size: "xl",
+=======
+export const dimmedColor_1 = "#333333";
+export const dimmedColor_2 = "#999999";
+
+export const componentStyles = {
+    Container: {
+        defaultProps: {
+            sizes: {
+                xl: 1420,
+            },
+>>>>>>> 624d06a (movie app main page)
         },
         styles: {
             root: {
@@ -24,27 +36,45 @@ export const components: MantineThemeComponents = {
             },
         },
     },
+<<<<<<< HEAD
     Button: {
         defaultProps: {
             size: "md",
         },
     },
 
+=======
+    Input: {
+        styles: {
+            input: {
+                backgroundColor: dimmedColor_1,
+                color: "#ffffff",
+                borderColor: dimmedColor_1,
+            },
+        },
+    },
+>>>>>>> 624d06a (movie app main page)
     Footer: {
         styles: {
             root: {
                 border: 0,
                 backgroundColor: "#141414",
                 color: "#fff",
+<<<<<<< HEAD
                 position: "static",
+=======
+>>>>>>> 624d06a (movie app main page)
             },
         },
     },
     Header: {
         styles: {
             root: {
+<<<<<<< HEAD
                 position: "sticky",
                 top: 0,
+=======
+>>>>>>> 624d06a (movie app main page)
                 border: 0,
                 backgroundColor: "#141414",
                 color: "#fff",
@@ -52,6 +82,7 @@ export const components: MantineThemeComponents = {
         },
     },
 };
+<<<<<<< HEAD
 
 // Input: {
 //     styles: (theme: MantineTheme, params: ButtonStylesParams) => ({
@@ -81,3 +112,5 @@ export const components: MantineThemeComponents = {
 //         },
 //     }),
 // },
+=======
+>>>>>>> 624d06a (movie app main page)
