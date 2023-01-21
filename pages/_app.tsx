@@ -16,7 +16,7 @@ export default function App(props: AppProps) {
         <>
             <Head />
             <MantineProvider withGlobalStyles withNormalizeCSS theme={mantineTheme}>
-                <AppShell padding={0} header={<Header />} footer={isMobile ? <BottomNavigation /> : <Footer />}>
+                <AppShell header={<Header />} footer={isMobile ? <BottomNavigation /> : <Footer />}>
                     <Component {...pageProps} />
                 </AppShell>
             </MantineProvider>

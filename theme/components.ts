@@ -1,6 +1,13 @@
 import { MantineThemeComponents } from "@mantine/styles/lib/theme/types/MantineTheme";
 
 export const components: MantineThemeComponents = {
+    AppShell: {
+        styles: {
+            main: {
+                padding: 0,
+            },
+        },
+    },
     Container: {
         defaultProps: {
             // sizes: {
@@ -36,6 +43,8 @@ export const components: MantineThemeComponents = {
     Header: {
         styles: {
             root: {
+                position: "sticky",
+                top: 0,
                 border: 0,
                 backgroundColor: "#141414",
                 color: "#fff",
