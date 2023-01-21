@@ -1,17 +1,27 @@
 import { Group, Input, MediaQuery } from "@mantine/core";
-import { useMediaQuery } from "@mantine/hooks";
+import { useDebouncedValue, useInputState, useMediaQuery } from "@mantine/hooks";
 import { IconChevronLeft, IconSearch, IconX } from "@tabler/icons";
 import { useState } from "react";
+import { searchInput } from "../theme/styles";
 
 const Search = ({}) => {
     const [visible, setVisible] = useState(false);
     const isMobile = useMediaQuery("max-width: 600px");
-    const [value, setValue] = useState("");
+    const [query, setQuery] = useInputState("");
+    const debouncedQuery = useDebouncedValue(query, 500);
+
+    console.log(debouncedQuery);
 
     // const findMovie = e => {
     //     if (value.trim() && isMobile) {
     //         setVisible(true);
     //     }
+    // };
+
+    // const onKeyPress = (e: React.KeyboardEvent) => {
+    // 	if (e.key === 'Enter') {
+    // 		onClickSignup();
+    // 	}
     // };
 
     return (
@@ -29,12 +39,24 @@ const Search = ({}) => {
                 {isMobile && <IconChevronLeft />}
                 <MediaQuery smallerThan='xs' styles={{ display: "none" }}>
                     <Input
+                        sx={searchInput}
                         icon={<IconSearch size={16} />}
                         placeholder='Search'
                         w={{ xs: 230, sm: 350 }}
-                        onChange={e => setValue(e.target.value)}
+                        value={query}
+                        onChange={setQuery}
                         maxLength={50}
-                        rightSection={value.trim() ? <IconX size={18} /> : <></>}
+                        rightSection={query.trim() ? <IconX size={18} /> : <></>}
+                        styles={{
+                            rightSection: {
+                                width: 140,
+                                color: "white",
+                            },
+                            // icon: {
+                            //     color: "red",
+                            // },
+                        }}
+                        // onKeyPress={onKeyPress}
                     />
                     {/* <Input placeholder='Search' w={600} /> */}
                 </MediaQuery>

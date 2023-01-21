@@ -1,6 +1,6 @@
 import { MantineThemeOverride } from "@mantine/core";
 import { Fira_Sans } from "@next/font/google";
-import { componentStyles } from "./components";
+import { components } from "./components";
 
 export const fira_sans = Fira_Sans({
     weight: ["300", "400", "500", "700"],
@@ -18,8 +18,7 @@ const theme: MantineThemeOverride = {
     colorScheme: "light",
     fontFamily: fira_sans.style.fontFamily,
     primaryColor: "blue",
-
-    components: componentStyles,
+    components,
 };
 
 export default theme;

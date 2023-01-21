@@ -1,12 +1,12 @@
-export const dimmedColor_1 = "#333333";
-export const dimmedColor_2 = "#999999";
+import { MantineThemeComponents } from "@mantine/styles/lib/theme/types/MantineTheme";
 
-export const componentStyles = {
+export const components: MantineThemeComponents = {
     Container: {
         defaultProps: {
-            sizes: {
-                xl: 1420,
-            },
+            // sizes: {
+            //     xl: 1420,
+            // },
+            size: "xl",
         },
         styles: {
             root: {
@@ -17,21 +17,19 @@ export const componentStyles = {
             },
         },
     },
-    Input: {
-        styles: {
-            input: {
-                backgroundColor: dimmedColor_1,
-                color: "#ffffff",
-                borderColor: dimmedColor_1,
-            },
+    Button: {
+        defaultProps: {
+            size: "md",
         },
     },
+
     Footer: {
         styles: {
             root: {
                 border: 0,
                 backgroundColor: "#141414",
                 color: "#fff",
+                position: "static",
             },
         },
     },
@@ -45,3 +43,32 @@ export const componentStyles = {
         },
     },
 };
+
+// Input: {
+//     styles: (theme: MantineTheme, params: ButtonStylesParams) => ({
+//         input: {
+//             backgroundColor: theme.colors.gray_1,
+//             color: "#ffffff",
+//             borderColor: theme.colors.gray_2,
+//         },
+//         icon: {
+//             color: "blue",
+//         },
+//         rightSection: {
+//             color: "white",
+//         },
+//     }),
+// },
+// Button: {
+//     styles: (theme: MantineTheme, params: ButtonStylesParams) => ({
+//         root: {
+//             color: params.variant === "outline" ? theme.colors.primary : theme.white,
+//             borderColor: params.variant === "outline" && theme.colors.primary,
+//             background: params.variant === "filled" ? theme.colors.primary : theme.white,
+
+//             // ":hover": {
+//             //     backgroundColor: theme.fn.darken(params.variant === "filled" ? theme.colors.primary : theme.colors.primary, 0.1 ),
+//             // },
+//         },
+//     }),
+// },

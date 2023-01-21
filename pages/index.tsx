@@ -13,7 +13,7 @@ export default function Home() {
     return (
         <>
             <Hero />
-            <Container size='xl' bg='#fff'>
+            <Container size='xl'>
                 <MovieList title='New movies' />
                 <MovieList title='New series' />
             </Container>

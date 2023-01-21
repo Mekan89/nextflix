@@ -25,7 +25,7 @@ const useStyles = createStyles(theme => ({
 }));
 
 const MovieCard = ({}) => {
-    const { classes, cx } = useStyles();
+    const { classes } = useStyles();
 
     return (
         // <Link href={`/film/${id}`}>
