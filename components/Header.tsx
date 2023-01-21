@@ -207,7 +207,8 @@ const useStyles = createStyles(theme => ({
         // position: "fixed",
         // top: 0,
         zIndex: 1,
-        transition: "0.5s",
+        transition: "top 0.2s ease-in-out",
+        // transition: "0.5s",
     },
 
     dropdown: {

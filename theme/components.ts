@@ -95,10 +95,15 @@ export const components: MantineThemeComponents = {
         styles: {
             root: {
 <<<<<<< HEAD
+<<<<<<< HEAD
                 position: "sticky",
                 top: 0,
 =======
 >>>>>>> 624d06a (movie app main page)
+=======
+                position: "sticky",
+                top: 0,
+>>>>>>> 12a5725 (movie app main page)
                 border: 0,
                 backgroundColor: "#141414",
                 color: "#fff",

@@ -48,8 +48,12 @@ export default function App(props: AppProps) {
 >>>>>>> 624d06a (movie app main page)
 =======
             <MantineProvider withGlobalStyles withNormalizeCSS theme={mantineTheme}>
+<<<<<<< HEAD
                 <AppShell padding={0} header={<Header />} footer={isMobile ? <BottomNavigation /> : <Footer />}>
 >>>>>>> a1cb2a4 (movie app main page)
+=======
+                <AppShell header={<Header />} footer={isMobile ? <BottomNavigation /> : <Footer />}>
+>>>>>>> 12a5725 (movie app main page)
                     <Component {...pageProps} />
                 </AppShell>
             </MantineProvider>
