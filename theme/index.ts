@@ -18,6 +18,7 @@ const theme: MantineThemeOverride = {
     colorScheme: "light",
     fontFamily: fira_sans.style.fontFamily,
     primaryColor: "blue",
+
     components,
 };
 
