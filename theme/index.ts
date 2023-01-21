@@ -1,10 +1,14 @@
 import { MantineThemeOverride } from "@mantine/core";
 import { Fira_Sans } from "@next/font/google";
 <<<<<<< HEAD
+<<<<<<< HEAD
 import { components } from "./components";
 =======
 import { componentStyles } from "./components";
 >>>>>>> 624d06a (movie app main page)
+=======
+import { components } from "./components";
+>>>>>>> a1cb2a4 (movie app main page)
 
 export const fira_sans = Fira_Sans({
     weight: ["300", "400", "500", "700"],
@@ -22,12 +26,16 @@ const theme: MantineThemeOverride = {
     colorScheme: "light",
     fontFamily: fira_sans.style.fontFamily,
     primaryColor: "blue",
+<<<<<<< HEAD
 
 <<<<<<< HEAD
     components,
 =======
     components: componentStyles,
 >>>>>>> 624d06a (movie app main page)
+=======
+    components,
+>>>>>>> a1cb2a4 (movie app main page)
 };
 
 export default theme;

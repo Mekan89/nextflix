@@ -26,10 +26,14 @@ const useStyles = createStyles(theme => ({
 
 const MovieCard = ({}) => {
 <<<<<<< HEAD
+<<<<<<< HEAD
     const { classes } = useStyles();
 =======
     const { classes, cx } = useStyles();
 >>>>>>> 624d06a (movie app main page)
+=======
+    const { classes } = useStyles();
+>>>>>>> a1cb2a4 (movie app main page)
 
     return (
         // <Link href={`/film/${id}`}>

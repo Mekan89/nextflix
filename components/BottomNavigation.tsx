@@ -1,15 +1,22 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 import { ActionIcon, createStyles, Group, Stack, Text } from "@mantine/core";
 import { Icon24Hours, IconHeart, IconHome, IconMasksTheater, IconMovie } from "@tabler/icons";
 
 const useStyles = createStyles(theme => ({
 =======
 import { ActionIcon, createStyles, Stack, Text } from "@mantine/core";
+=======
+import { ActionIcon, createStyles, Group, Stack, Text } from "@mantine/core";
+>>>>>>> a1cb2a4 (movie app main page)
 import { Icon24Hours, IconHeart, IconHome, IconMasksTheater, IconMovie } from "@tabler/icons";
-import { IconProps } from "../types";
 
+<<<<<<< HEAD
 export const useStyles = createStyles(theme => ({
 >>>>>>> 624d06a (movie app main page)
+=======
+const useStyles = createStyles(theme => ({
+>>>>>>> a1cb2a4 (movie app main page)
     footer: {
         backgroundColor: theme.colorScheme === "dark" ? theme.colors.dark[6] : theme.colors.gray[0],
         marginBottom: "env(safe-area-inset-bottom, 50px)",
@@ -35,12 +42,16 @@ export const useStyles = createStyles(theme => ({
 }));
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> a1cb2a4 (movie app main page)
 const items = [
     { title: "Home", to: "/", icon: <IconHome size={30} /> },
     { title: "Movies", to: "/movies", icon: <IconMasksTheater size={30} /> },
     { title: "Series", to: "/series", icon: <Icon24Hours size={30} /> },
     { title: "Cartoons", to: "/cartoons", icon: <IconMovie size={30} /> },
     { title: "Favorites", to: "/favorites", icon: <IconHeart size={30} /> },
+<<<<<<< HEAD
 =======
 const items: IconProps[] = [
     { title: "Home", to: "/", icon: <IconHome /> },
@@ -49,12 +60,15 @@ const items: IconProps[] = [
     { title: "Cartoons", to: "/cartoons", icon: <IconMovie /> },
     { title: "Favorites", to: "/favorites", icon: <IconHeart /> },
 >>>>>>> 624d06a (movie app main page)
+=======
+>>>>>>> a1cb2a4 (movie app main page)
 ];
 
 const BottomNavigation = ({}) => {
     // className={cx(classes.title, { [classes.titleActive]: isActive })}
 
     return (
+<<<<<<< HEAD
 <<<<<<< HEAD
         <Group bg='#141414' grow>
             {items.map((el, i) => (
@@ -77,20 +91,40 @@ const BottomNavigation = ({}) => {
         </Group>
 =======
         <>
+=======
+        <Group bg='#141414' grow>
+>>>>>>> a1cb2a4 (movie app main page)
             {items.map((el, i) => (
-                <Stack align='center' spacing={0} key={i}>
-                    <ActionIcon size={24}>{el.icon}</ActionIcon>
+                <Stack align='center' spacing={0} key={i} py={20} c='#a1a1a1' sx={{ cursor: "pointer" }}>
+                    {/* // <NavLink
+                //     key={i}
+                //     label={el.title}
+                //     icon={el.icon}
+                //     active
+                //     component={Link}
+                //     href={el.to}
+                //     sx={{ flexDirection: "column", alignContent: "center", justifyItems: "center", justifyContent: "center", display: "block",  }}
+                // /> */}
 
-                    <Text size='xs'>{el.title}</Text>
+                    <ActionIcon>{el.icon}</ActionIcon>
+
+                    <Text size='sm'>{el.title}</Text>
                 </Stack>
             ))}
+<<<<<<< HEAD
         </>
 >>>>>>> 624d06a (movie app main page)
+=======
+        </Group>
+>>>>>>> a1cb2a4 (movie app main page)
     );
 };
 
 export default BottomNavigation;
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> a1cb2a4 (movie app main page)
 
 // const BottomNavbar = ({}) => {
 //     const [value, setValue] = useState("movies");
@@ -103,5 +137,8 @@ export default BottomNavigation;
 //         </BottomNavigation>
 //     );
 // };
+<<<<<<< HEAD
 =======
 >>>>>>> 624d06a (movie app main page)
+=======
+>>>>>>> a1cb2a4 (movie app main page)

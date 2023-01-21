@@ -1,6 +1,9 @@
 import { CSSObject, MantineTheme } from "@mantine/core";
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> a1cb2a4 (movie app main page)
 export const customColors = {
     dark: "#0a1016",
 
@@ -20,6 +23,7 @@ export const searchInput = (theme: MantineTheme): CSSObject => ({
 });
 
 export const navLink = (theme: MantineTheme): CSSObject => ({
+<<<<<<< HEAD
     position: "relative",
     cursor: "pointer",
     fontWeight: "bold",
@@ -28,6 +32,11 @@ export const navLink = ({ colors, colorScheme, fn, shadows }: MantineTheme): CSS
     position: "relative",
     cursor: "pointer",
 >>>>>>> 624d06a (movie app main page)
+=======
+    position: "relative",
+    cursor: "pointer",
+    fontWeight: "bold",
+>>>>>>> a1cb2a4 (movie app main page)
     "::after": {
         content: "''",
         position: "absolute",
@@ -36,10 +45,14 @@ export const navLink = ({ colors, colorScheme, fn, shadows }: MantineTheme): CSS
         bottom: -5,
         left: 0,
 <<<<<<< HEAD
+<<<<<<< HEAD
         backgroundColor: customColors.primary,
 =======
         backgroundColor: colors.blue,
 >>>>>>> 624d06a (movie app main page)
+=======
+        backgroundColor: customColors.primary,
+>>>>>>> a1cb2a4 (movie app main page)
         transformOrigin: "bottom left",
         transition: "transform 0.25s ease-out",
         transform: "scaleX(0)",
@@ -50,6 +63,9 @@ export const navLink = ({ colors, colorScheme, fn, shadows }: MantineTheme): CSS
 });
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> a1cb2a4 (movie app main page)
 export const filledBtn = (theme: MantineTheme): CSSObject => ({
     backgroundColor: customColors.primary,
     transition: "0.3s",
@@ -82,6 +98,7 @@ export const outlineBtn = (theme: MantineTheme): CSSObject => ({
 //         // ":hover": {
 //         //     backgroundColor: theme.fn.darken(params.variant === "filled" ? theme.colors.primary : theme.colors.primary, 0.1 ),
 //         // },
+<<<<<<< HEAD
 //     },
 // }),
 =======
@@ -92,3 +109,7 @@ export const outlineBtn = (theme: MantineTheme): CSSObject => ({
 //     },
 // },
 >>>>>>> 624d06a (movie app main page)
+=======
+//     },
+// }),
+>>>>>>> a1cb2a4 (movie app main page)

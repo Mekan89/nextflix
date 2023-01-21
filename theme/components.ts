@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 import { MantineThemeComponents } from "@mantine/styles/lib/theme/types/MantineTheme";
 
 export const components: MantineThemeComponents = {
@@ -18,14 +19,24 @@ export const components: MantineThemeComponents = {
 =======
 export const dimmedColor_1 = "#333333";
 export const dimmedColor_2 = "#999999";
+=======
+import { MantineThemeComponents } from "@mantine/styles/lib/theme/types/MantineTheme";
+>>>>>>> a1cb2a4 (movie app main page)
 
-export const componentStyles = {
+export const components: MantineThemeComponents = {
     Container: {
         defaultProps: {
+<<<<<<< HEAD
             sizes: {
                 xl: 1420,
             },
 >>>>>>> 624d06a (movie app main page)
+=======
+            // sizes: {
+            //     xl: 1420,
+            // },
+            size: "xl",
+>>>>>>> a1cb2a4 (movie app main page)
         },
         styles: {
             root: {
@@ -36,6 +47,7 @@ export const componentStyles = {
             },
         },
     },
+<<<<<<< HEAD
 <<<<<<< HEAD
     Button: {
         defaultProps: {
@@ -54,6 +66,14 @@ export const componentStyles = {
         },
     },
 >>>>>>> 624d06a (movie app main page)
+=======
+    Button: {
+        defaultProps: {
+            size: "md",
+        },
+    },
+
+>>>>>>> a1cb2a4 (movie app main page)
     Footer: {
         styles: {
             root: {
@@ -61,9 +81,13 @@ export const componentStyles = {
                 backgroundColor: "#141414",
                 color: "#fff",
 <<<<<<< HEAD
+<<<<<<< HEAD
                 position: "static",
 =======
 >>>>>>> 624d06a (movie app main page)
+=======
+                position: "static",
+>>>>>>> a1cb2a4 (movie app main page)
             },
         },
     },
@@ -83,6 +107,9 @@ export const componentStyles = {
     },
 };
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> a1cb2a4 (movie app main page)
 
 // Input: {
 //     styles: (theme: MantineTheme, params: ButtonStylesParams) => ({
@@ -112,5 +139,8 @@ export const componentStyles = {
 //         },
 //     }),
 // },
+<<<<<<< HEAD
 =======
 >>>>>>> 624d06a (movie app main page)
+=======
+>>>>>>> a1cb2a4 (movie app main page)
