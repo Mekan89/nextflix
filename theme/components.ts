@@ -92,13 +92,13 @@ export const components: MantineThemeComponents = {
             dropdown: {
                 backgroundColor: "#1f1f1f",
                 border: 0,
-                marginLeft: 10,
+                // marginLeft: 10,
             },
             itemIcon: {
                 // color: "#f00",
             },
             itemLabel: {
-                // marginLeft: 10,
+                marginLeft: 10,
             },
             item: {
                 background: "#1f1f1f",
@@ -109,18 +109,20 @@ export const components: MantineThemeComponents = {
                     color: "white",
                     fontWeight: "bold",
 
-                    ".itemIcon": {
-                        color: "#f00",
+                    "& .itemIcon": {
                         position: "relative",
+                        svg: {
+                            color: "#f00",
 
-                        "&::after": {
-                            content: "''",
-                            position: "absolute",
-                            width: "100%",
-                            height: 3,
-                            bottom: 0,
-                            left: 0,
-                            backgroundColor: customColors.primary,
+                            "&::after": {
+                                content: "''",
+                                position: "absolute",
+                                width: "100%",
+                                height: 3,
+                                bottom: 0,
+                                left: 0,
+                                backgroundColor: customColors.primary,
+                            },
                         },
                     },
                 },

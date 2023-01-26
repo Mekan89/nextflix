@@ -1,6 +1,6 @@
 import { Burger, Menu } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
-import { Icon24Hours, IconHeart, IconHome, IconMasksTheater, IconMovie } from "@tabler/icons";
+import { Icon24Hours, IconHeart, IconHome, IconMasksTheater, IconMovie } from "@tabler/icons-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { isActive } from "../../theme/styles";
@@ -18,7 +18,7 @@ const BurgerMenu = ({}) => {
     const pathname = usePathname();
 
     return (
-        <Menu shadow='md' trigger='click' width={200} offset={20} position='top-end' onClose={close} onOpen={open} opened={opened}>
+        <Menu shadow='md' trigger='click' width={200} offset={20} position='top-start' onClose={close} onOpen={open} opened={opened}>
             <Menu.Target>
                 <Burger opened={opened} color='#a1a1a1' size={18} />
             </Menu.Target>

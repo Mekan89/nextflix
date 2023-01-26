@@ -1,11 +1,11 @@
 import { AppShell, MantineProvider, useMantineTheme } from "@mantine/core";
 import { useMediaQuery } from "@mantine/hooks";
 import { AppProps } from "next/app";
-import BottomNavigation from "../components/BottomNavigation";
+import BottomNavigation from "../components/Navbar/BottomNavigation";
 
 import Footer from "../components/Footer";
 import Head from "../components/Head";
-import Header from "../components/Header";
+import Header from "../components/Navbar/Header";
 import mantineTheme from "../theme";
 
 export default function App(props: AppProps) {

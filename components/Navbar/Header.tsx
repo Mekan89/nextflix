@@ -1,8 +1,48 @@
-import { Burger, Container, createStyles, Group, Header as MantineHeader, NavLink, Paper, Text, Transition } from "@mantine/core";
-import { useDisclosure, useWindowScroll } from "@mantine/hooks";
+import { Container, Group, Header as MantineHeader, Text } from "@mantine/core";
 import Link from "next/link";
-import { navLink } from "../theme/styles";
+import { navLink } from "../../theme/styles";
+import BurgerMenu from "./Menu";
 import Search from "./Search";
+
+const Header = ({}) => {
+    // const { classes } = useStyles();
+    // const [scroll] = useWindowScroll();
+
+    return (
+        <MantineHeader fixed height={70}>
+            <Container>
+                <Group noWrap position='apart' h={70} pos='relative'>
+                    <Group>
+                        <BurgerMenu />
+                        <Text component={Link} href='/' fz={26} c='blue.8' fw='bold'>
+                            NEXTFLIX
+                        </Text>
+                    </Group>
+
+                    <Search />
+                    <Group>
+                        {/* <ThemeToggle /> */}
+                        <Text sx={navLink}>Login</Text>
+                    </Group>
+                </Group>
+            </Container>
+        </MantineHeader>
+    );
+};
+
+export default Header;
+
+{
+    /* <Burger opened={opened} color='#a1a1a1' size={18} /> 
+
+  <List bg='#fff' w={270} withPadding listStyleType='none' mt={300}>
+ {items.map(({ title, route, icon }, index) => (
+         <List.Item key={index} icon={icon}>
+             {title}
+         </List.Item>
+     ))}
+ </List> */
+}
 
 // export const menu = (theme: MantineTheme): CSSObject => ({
 // position: "absolute",
@@ -14,14 +54,13 @@ import Search from "./Search";
 //         position: "relative",
 //         display: "flex",
 //         alignItems: "center",
-//         paddingTop: "22px",
-//         paddingBottom: "22px",
+//         paddingTop: 22,
+//         paddingBottom: 22,
 //         "@media (max-width: 768px)": {
 //             width: "100%",
 //             padding: 0,
 //         },
 //     },
-
 //     link: {
 //         position: "relative",
 //         fontSize: "18px",
@@ -51,89 +90,45 @@ import Search from "./Search";
 //         transition: "opacity 0.3s, visibility 0.3s",
 //     },
 
-//     '&:hover &:focusVisible' : {
-//         '&:before': {
-//             opacity: ,
-//             visibility: 'visible',
+//     "&:hover &:focusVisible": {
+//         "&:before": {
+//             opacity: 1,
+//             visibility: "visible",
 //         },
 //     },
-//     '&:hover': {
-//         color: '#fff',
+//     "&:hover": {
+//         color: "#fff",
 //     },
-// },
 // }));
 
-const useStyles = createStyles(theme => ({
-    root: {
-        // position: "sticky",
-        // position: "fixed",
-        // top: 0,
-        zIndex: 1,
-        transition: "top 0.2s ease-in-out",
-        // transition: "0.5s",
-    },
+// const dropdown = (theme: MantineTheme): CSSObject => ({
+//     // position: "sticky",
+//     // position: "fixed",
+//     // top: 0,
+//     zIndex: 1,
+//     transition: "top 0.2s ease-in-out",
+//     backgroundColor: "#1f1f1f",
 
-    dropdown: {
-        position: "absolute",
-        top: 70,
-        left: 0,
-        right: 0,
-        zIndex: 0,
-        borderTopRightRadius: 0,
-        borderTopLeftRadius: 0,
-        borderTopWidth: 0,
-        overflow: "hidden",
-        backgroundColor: "#000",
+//     // transition: "0.5s",
+// });
 
-        [theme.fn.largerThan("sm")]: {
-            display: "none",
-        },
-    },
-}));
+// const root = (theme: MantineTheme): CSSObject => ({
+//     position: "absolute",
+//     top: 0,
+//     zIndex: 10,
+//     border: 0,
+//     overflow: "hidden",
+//     padding: "85px 25px 30px",
+//     // color: "#d2d2d2",
+//     color: "#f00",
+//     // fontStyle: "#d2d2d2",
+//     width: 240,
 
-const Header = ({}) => {
-    const [opened, { close, toggle, open }] = useDisclosure(false);
-    const { classes } = useStyles();
-    const [scroll] = useWindowScroll();
+//     // [theme.fn.smallerThan("sm")]: {
+//     //     display: "none",
+//     // },
+// });
 
-    return (
-        <MantineHeader fixed height={70} className={classes.root} hidden={scroll.y > 450}>
-            <Container>
-                <Group noWrap position='apart' h={70} pos='relative'>
-                    <Group>
-                        {/* <Menu width={260} offset={14} onClose={close} onOpen={open} opened={opened} position='top-start'>
-                            <Menu.Target>
-                                <Burger opened={opened} onClick={toggle} color='#a1a1a1' size={18} />
-                            </Menu.Target>
-                            <Dropdown />
-                        </Menu> */}
-                        <Burger opened={opened} onClick={toggle} color='#a1a1a1' size={18} />
-
-                        <Transition transition='pop-top-right' duration={200} mounted={opened}>
-                            {styles => (
-                                <Paper className={classes.dropdown} withBorder>
-                                    <NavLink label='Home' py={8} px={6} />
-                                    <NavLink label='Books' py={8} px={6} />
-                                    <NavLink label='About' py={8} px={6} />
-                                    <NavLink label='LogIn/Register' py={8} px={6} />
-                                </Paper>
-                            )}
-                        </Transition>
-
-                        <Text component={Link} href='/' fz={26} c='blue.8' fw='bold'>
-                            NEXTFLIX
-                        </Text>
-                    </Group>
-
-                    <Search />
-                    <Group>
-                        {/* <ThemeToggle /> */}
-                        <Text sx={navLink}>Login</Text>
-                    </Group>
-                </Group>
-            </Container>
-        </MantineHeader>
-    );
-};
-
-export default Header;
+// const menuStyle = (theme: MantineTheme): CSSObject => ({
+//     backgroundColor: "#1f1f1f",
+// });

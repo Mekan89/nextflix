@@ -1,6 +1,6 @@
 import { Group, Input, MediaQuery } from "@mantine/core";
 import { useDebouncedValue, useInputState, useMediaQuery } from "@mantine/hooks";
-import { IconChevronLeft, IconSearch, IconX } from "@tabler/icons";
+import { IconChevronLeft, IconSearch, IconX } from "@tabler/icons-react";
 import { useState } from "react";
 import { searchInput } from "../../theme/styles";
 

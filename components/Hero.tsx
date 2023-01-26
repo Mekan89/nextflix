@@ -1,5 +1,5 @@
 import { Box, Button, Container, createStyles, Stack, Text, Title } from "@mantine/core";
-import { IconArrowRight } from "@tabler/icons";
+import { IconArrowRight } from "@tabler/icons-react";
 import { filledBtn } from "../theme/styles";
 
 const useStyles = createStyles(theme => ({
