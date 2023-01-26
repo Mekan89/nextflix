@@ -29,7 +29,7 @@ const MovieCard = ({}) => {
 
     return (
         // <Link href={`/film/${id}`}>
-        <Col span={6} xs={4} sm={3} lg={2.4} className={classes.wrapper}>
+        <Col span={6} xs={4} sm={3} md={2.4} className={classes.wrapper}>
             <Image src='/black.jpg' alt='Norway' radius='md' />
             <Box className={classes.badge}>4.9</Box>
             <Text weight={700} truncate mt='sm'>

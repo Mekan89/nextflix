@@ -1,74 +1,52 @@
-import { ActionIcon, createStyles, Group, Stack, Text } from "@mantine/core";
+import { ActionIcon, CSSObject, Group, MantineTheme, Stack, Text } from "@mantine/core";
 import { Icon24Hours, IconHeart, IconHome, IconMasksTheater, IconMovie } from "@tabler/icons";
+import { usePathname } from "next/navigation";
+import { useState } from "react";
 
-const useStyles = createStyles(theme => ({
-    footer: {
-        backgroundColor: theme.colorScheme === "dark" ? theme.colors.dark[6] : theme.colors.gray[0],
-        marginBottom: "env(safe-area-inset-bottom, 50px)",
+const bottomNavbar = (theme: MantineTheme, props?: any): CSSObject => ({
+    cursor: "pointer",
+    "&:hover": {
+        svg: {
+            stroke: "white",
+        },
+        ".mantine-Text-root": {
+            color: "white",
+        },
     },
-    icons: {
-        height: "100%",
-    },
-    icon: {
-        color: theme.colors.gray[5],
-    },
-    iconActive: {
-        color: theme.colors.blue[7],
-    },
-    title: {
-        color: theme.colors.gray[5],
-    },
-    titleActive: {
-        color: theme.colors.blue[7],
-    },
-    link: {
-        textDecoration: "none",
-    },
-}));
+});
 
 const items = [
-    { title: "Home", to: "/", icon: <IconHome size={30} /> },
-    { title: "Movies", to: "/movies", icon: <IconMasksTheater size={30} /> },
-    { title: "Series", to: "/series", icon: <Icon24Hours size={30} /> },
-    { title: "Cartoons", to: "/cartoons", icon: <IconMovie size={30} /> },
-    { title: "Favorites", to: "/favorites", icon: <IconHeart size={30} /> },
+    { title: "Home", route: "/", icon: <IconHome size={30} /> },
+    { title: "Movies", route: "/movies", icon: <IconMasksTheater size={30} /> },
+    { title: "Series", route: "/series", icon: <Icon24Hours size={30} /> },
+    { title: "Cartoons", route: "/cartoons", icon: <IconMovie size={30} /> },
+    { title: "Favorites", route: "/favorites", icon: <IconHeart size={30} /> },
 ];
+
 const BottomNavigation = ({}) => {
-    // className={cx(classes.title, { [classes.titleActive]: isActive })}
+    const pathname = usePathname();
+    const [value, setValue] = useState("movies");
+
+    console.log(pathname);
 
     return (
-        <Group bg='#141414' grow>
-            {items.map((el, i) => (
-                <Stack align='center' spacing={0} key={i} py={20} c='#a1a1a1' sx={{ cursor: "pointer" }}>
-                    {/* // <NavLink
-                //     key={i}
-                //     label={el.title}
-                //     icon={el.icon}
-                //     active
-                //     component={Link}
-                //     href={el.to}
-                //     sx={{ flexDirection: "column", alignContent: "center", justifyItems: "center", justifyContent: "center", display: "block",  }}
-                // /> */}
+        <Group bg='#141414' grow pos='sticky' bottom={0} py={15}>
+            {items.map(({ title, route, icon }, i) => {
+                const isCurrenPage = pathname === route;
 
-                    <ActionIcon>{el.icon}</ActionIcon>
-
-                    <Text size='sm'>{el.title}</Text>
-                </Stack>
-            ))}
+                return (
+                    <Stack align='center' spacing={0} key={i} sx={bottomNavbar}>
+                        <ActionIcon variant='transparent' c={isCurrenPage ? "white" : "dimmed"}>
+                            {icon}
+                        </ActionIcon>
+                        <Text c={isCurrenPage ? "white" : "dimmed"} size='sm'>
+                            {title}
+                        </Text>
+                    </Stack>
+                );
+            })}
         </Group>
     );
 };
 
 export default BottomNavigation;
-
-// const BottomNavbar = ({}) => {
-//     const [value, setValue] = useState("movies");
-
-//     return (
-//         <BottomNavigation showLabels sx={{ width: "100%", position: "fixed", bottom: 0, left: 0 }} value={value} onChange={(event, newValue) => setValue(newValue)}>
-//             {items.map(({ title, icon }) => (
-//                 <BottomNavigationAction key={title} label={title} icon={icon} />
-//             ))}
-//         </BottomNavigation>
-//     );
-// };

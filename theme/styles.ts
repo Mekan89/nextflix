@@ -18,6 +18,19 @@ export const searchInput = (theme: MantineTheme): CSSObject => ({
     },
 });
 
+export const isActive = (theme: MantineTheme): CSSObject => ({
+    // position: "relative",
+    "::after": {
+        content: "''",
+        position: "absolute",
+        width: "100%",
+        height: 3,
+        bottom: -5,
+        left: 0,
+        backgroundColor: customColors.primary,
+    },
+});
+
 export const navLink = (theme: MantineTheme): CSSObject => ({
     position: "relative",
     cursor: "pointer",
@@ -62,26 +75,3 @@ export const outlineBtn = (theme: MantineTheme): CSSObject => ({
         // color: theme.fn.variant({ variant: "light", color: theme.primaryColor }).color,
     },
 });
-
-// styles: (theme: MantineTheme, params: ButtonStylesParams) => ({
-//     root: {
-//         color: params.variant === "outline" ? theme.colors.primary : theme.white,
-//         borderColor: params.variant === "outline" && theme.colors.primary,
-//         background: params.variant === "filled" ? theme.colors.primary : theme.white,
-
-//         // ":hover": {
-//         //     backgroundColor: theme.fn.darken(params.variant === "filled" ? theme.colors.primary : theme.colors.primary, 0.1 ),
-//         // },
-
-//     },
-// }),
-
-// button: {
-//     "&, &:hover": {
-//         backgroundColor: theme.fn.variant({ variant: "light", color: theme.primaryColor }).background,
-//         color: theme.fn.variant({ variant: "light", color: theme.primaryColor }).color,
-//     },
-// },
-
-//     },
-// }),

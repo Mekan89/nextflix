@@ -4,7 +4,7 @@ interface Props {
     title?: string;
 }
 
-const Head = ({ title = "Flixnet" }: Props) => {
+const Head = ({ title = "NEXTFLIX" }: Props) => {
     return (
         <NextHead>
             <title>{title}</title>

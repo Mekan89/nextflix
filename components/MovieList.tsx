@@ -25,7 +25,7 @@ const MovieList = ({ title }: Props) => {
                 <MovieCard />
             </Grid>
 
-            <Button w={225} mx='auto' sx={filledBtn}>
+            <Button w={200} mx='auto' sx={filledBtn}>
                 Load More
             </Button>
         </Stack>

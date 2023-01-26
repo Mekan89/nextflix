@@ -5,6 +5,7 @@ import { components } from "./components";
 export const fira_sans = Fira_Sans({
     weight: ["300", "400", "500", "700"],
     fallback: ["Helvetica", "Arial", "sans-serif"],
+    preload: false,
 });
 
 const theme: MantineThemeOverride = {

@@ -2,7 +2,7 @@ import { Group, Input, MediaQuery } from "@mantine/core";
 import { useDebouncedValue, useInputState, useMediaQuery } from "@mantine/hooks";
 import { IconChevronLeft, IconSearch, IconX } from "@tabler/icons";
 import { useState } from "react";
-import { searchInput } from "../theme/styles";
+import { searchInput } from "../../theme/styles";
 
 const Search = ({}) => {
     const [visible, setVisible] = useState(false);
@@ -41,7 +41,8 @@ const Search = ({}) => {
                         sx={searchInput}
                         icon={<IconSearch size={16} />}
                         placeholder='Search'
-                        w={{ xs: 230, sm: 350 }}
+                        // w={{ xs: 230, sm: 350 }}
+                        w='min(30vw, 20rem)'
                         value={query}
                         onChange={setQuery}
                         maxLength={50}

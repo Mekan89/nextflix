@@ -12,13 +12,13 @@ const Footer = ({}) => {
                         NEXTFLIX
                     </Text>
                     <Group spacing='xl'>
-                        <Text component='a' sx={navLink}>
+                        <Text component={Link} href='/movies' sx={navLink}>
                             Movies
                         </Text>
-                        <Text component='a' sx={navLink}>
+                        <Text component={Link} href='/series' sx={navLink}>
                             Series
                         </Text>
-                        <Text component='a' sx={navLink}>
+                        <Text component={Link} href='/cartoons' sx={navLink}>
                             Cartoons
                         </Text>
                     </Group>

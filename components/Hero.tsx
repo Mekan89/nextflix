@@ -4,7 +4,7 @@ import { filledBtn } from "../theme/styles";
 
 const useStyles = createStyles(theme => ({
     heroSection: {
-        height: "450px",
+        height: "470px",
         width: "99.5vw",
         position: "relative",
         backgroundImage: "url(/bg1.jpg)",
