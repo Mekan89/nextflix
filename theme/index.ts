@@ -15,6 +15,10 @@ const theme: MantineThemeOverride = {
             // background: theme.colors.gray[1],
             // colorScheme: "light",
         },
+
+        a: {
+            textDecoration: "none",
+        },
     }),
     colorScheme: "light",
     fontFamily: fira_sans.style.fontFamily,

@@ -1,26 +1,19 @@
-// import { styled } from "@mui/material";
+import { Text } from "@mantine/core";
 
-// const StyledRating = styled("span")(({ theme, color }) => ({
-//     position: "absolute",
-//     display: "flex",
-//     alignItems: "center",
-//     top: 10,
-//     left: 10,
-//     color: "#ffffff",
-//     padding: "2px 8px",
-//     fontWeight: 600,
-//     fontSize: 16,
-//     lineHeight: "24px",
-//     textAlign: "center",
-//     backgroundColor: theme.palette[color].main,
-//     borderRadius: 5,
-//     zIndex: 4,
-// }));
+interface RatingProps {
+    // rating: IMovieRating | undefined;
+    rating: number;
+    className?: {};
+}
 
-// const Rating = ({}) => {
-//     // const isHighRating = Math.floor(Number(rating?.kp || rating?.imdb)) > 4 ? styles.green : styles.red;
+const Rating = ({ className, rating }: RatingProps) => {
+    // const isHighRating = Math.floor(Number(rating?.kp || rating?.imdb)) > 4 ? 'green' : 'red';
 
-//     return <StyledRating color={5 > 4 ? "secondary" : "error"}>4.9</StyledRating>;
-// };
+    return (
+        <Text sx={className} color={5 > 4 ? "red" : "green"}>
+            {rating}
+        </Text>
+    );
+};
 
-// export default Rating;
+export default Rating;

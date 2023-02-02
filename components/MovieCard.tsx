@@ -1,4 +1,5 @@
-import { Badge, Box, Col, createStyles, Group, Image, Text } from "@mantine/core";
+import { Badge, Col, createStyles, Group, Image, Text } from "@mantine/core";
+import Rating from "./Rating";
 
 const useStyles = createStyles(theme => ({
     wrapper: {
@@ -31,7 +32,7 @@ const MovieCard = ({}) => {
         // <Link href={`/film/${id}`}>
         <Col span={6} xs={4} sm={3} md={2.4} className={classes.wrapper}>
             <Image src='/black.jpg' alt='Norway' radius='md' />
-            <Box className={classes.badge}>4.9</Box>
+            <Rating className={classes.badge} rating={4.9} />
             <Text weight={700} truncate mt='sm'>
                 Norway Adventures
             </Text>

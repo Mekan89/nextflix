@@ -1,5 +1,5 @@
 import { MantineThemeComponents } from "@mantine/styles/lib/theme/types/MantineTheme";
-import { customColors } from "./styles";
+import { dark_2, gray_1 } from "./colors";
 
 export const components: MantineThemeComponents = {
     AppShell: {
@@ -34,25 +34,9 @@ export const components: MantineThemeComponents = {
     Input: {
         styles: {
             input: {
-                backgroundColor: customColors.gray_1,
+                backgroundColor: gray_1,
                 color: "#ffffff",
-                borderColor: customColors.gray_1,
-            },
-        },
-    },
-    Burger: {
-        styles: {
-            root: {
-                color: "#a1a1a1",
-                "&:hover": {
-                    color: "white",
-                },
-            },
-            burger: {
-                color: "#a1a1a1",
-                "&:hover": {
-                    color: "white",
-                },
+                borderColor: gray_1,
             },
         },
     },
@@ -60,7 +44,7 @@ export const components: MantineThemeComponents = {
         styles: {
             root: {
                 border: 0,
-                backgroundColor: "#141414",
+                backgroundColor: dark_2,
                 color: "#fff",
                 position: "static",
             },
@@ -72,7 +56,7 @@ export const components: MantineThemeComponents = {
                 position: "sticky",
                 top: 0,
                 border: 0,
-                backgroundColor: "#141414",
+                backgroundColor: dark_2,
                 color: "#fff",
             },
         },
@@ -87,73 +71,41 @@ export const components: MantineThemeComponents = {
     },
 
     Menu: {
-        defaultProps: {},
         styles: {
-            dropdown: {
-                backgroundColor: "#1f1f1f",
-                border: 0,
-                // marginLeft: 10,
-            },
-            itemIcon: {
-                // color: "#f00",
-            },
-            itemLabel: {
-                marginLeft: 10,
-            },
-            item: {
-                background: "#1f1f1f",
-                color: "#d3d3d3",
-                transition: "0.3s",
-                "&[data-hovered]": {
-                    backgroundColor: "transparent",
-                    color: "white",
-                    fontWeight: "bold",
-
-                    "& .itemIcon": {
-                        position: "relative",
-                        svg: {
-                            color: "#f00",
-
-                            "&::after": {
-                                content: "''",
-                                position: "absolute",
-                                width: "100%",
-                                height: 3,
-                                bottom: 0,
-                                left: 0,
-                                backgroundColor: customColors.primary,
-                            },
-                        },
-                    },
-                },
-            },
-            // "&:hover": {
-            //     backgroundColor: "#1f1f1f",
-            //     label: {
-            //         color: "#f00",
-            //         borderRight: "2px solid #fff",
-
-            //         // color: "#1f1f1f",
-            //     },
-
-            //     svg: {
-            //         background: "#1f1f1f",
-
-            //         color: "#ff0",
-            //     },
-
-            // label: {
-            //     color: "#fff",
+            // dropdown: {
+            //     backgroundColor: menu_bg,
+            //     border: 0,
             // },
-            // },
-
-            //         itemIcon: {
-            //             background: "#1f1f1f",
-            //         },
-            //         itemLabel: {
-            //             background: "#1f1f1f",
-            //         },
+            // item: {
+            //     background: menu_bg,
+            //     color: "#d3d3d3",
+            //     transition: "0.3s",
+            //     "&[data-hovered]": {
+            //         background: "transparent",
+            //         color: "white",
+            //         fontWeight: "bold",
             //     },
+            // },
+            // itemIcon: {
+            //     position: "relative",
+            //     "::after": {
+            //         content: "''",
+            //         position: "absolute",
+            //         width: "100%",
+            //         height: 3,
+            //         bottom: -7,
+            //         left: 0,
+            //         backgroundColor: customColors.primary,
+            //         transformOrigin: "bottom left",
+            //         transition: "transform 0.2s ease-out",
+            //         transform: "scaleX(0)",
+            //     },
+            //     ".mantine-Menu-item:hover &::after": {
+            //         transform: "scaleX(1)",
+            //     },
+            // },
+            // itemLabel: {
+            //     marginLeft: 10,
             // },
         },
     },

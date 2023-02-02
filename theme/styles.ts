@@ -1,33 +1,24 @@
 import { CSSObject, MantineTheme } from "@mantine/core";
-
-export const customColors = {
-    dark: "#0a1016",
-
-    offWhite: "#ffffffcc",
-    gray_1: "#999999",
-    gray_2: "#333333",
-    primary: "#005382",
-    primaryDark: "#003f63",
-};
+import { blue_1, gray_2 } from "./colors";
 
 export const searchInput = (theme: MantineTheme): CSSObject => ({
     input: {
-        backgroundColor: customColors.gray_2,
+        backgroundColor: gray_2,
         color: "#ffffff",
-        borderColor: customColors.gray_2,
+        borderColor: gray_2,
     },
 });
 
 export const isActive = (theme: MantineTheme): CSSObject => ({
-    // position: "relative",
+    position: "relative",
     "::after": {
         content: "''",
         position: "absolute",
         width: "100%",
         height: 3,
-        bottom: -5,
+        bottom: -7,
         left: 0,
-        backgroundColor: customColors.primary,
+        backgroundColor: blue_1,
     },
 });
 
@@ -43,7 +34,7 @@ export const navLink = (theme: MantineTheme): CSSObject => ({
         height: 3,
         bottom: -5,
         left: 0,
-        backgroundColor: customColors.primary,
+        backgroundColor: blue_1,
         transformOrigin: "bottom left",
         transition: "transform 0.25s ease-out",
         transform: "scaleX(0)",
@@ -54,23 +45,23 @@ export const navLink = (theme: MantineTheme): CSSObject => ({
 });
 
 export const filledBtn = (theme: MantineTheme): CSSObject => ({
-    backgroundColor: customColors.primary,
+    backgroundColor: blue_1,
     transition: "0.3s",
     fontWeight: "bold",
     "&:hover": {
         color: theme.white,
-        backgroundColor: theme.fn.darken(customColors.primary, 0.2),
+        backgroundColor: theme.fn.darken(blue_1, 0.2),
     },
 });
 
 export const outlineBtn = (theme: MantineTheme): CSSObject => ({
     backgroundColor: "white",
-    color: customColors.primary,
+    color: blue_1,
     transition: "0.3s",
     fontWeight: "bold",
     "&:hover": {
         color: "white",
-        backgroundColor: customColors.primary,
+        backgroundColor: blue_1,
 
         // color: theme.fn.variant({ variant: "light", color: theme.primaryColor }).color,
     },

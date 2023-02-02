@@ -255,6 +255,13 @@
     "@mantine/ssr" "5.10.2"
     "@mantine/styles" "5.10.2"
 
+"@mantine/spotlight@^5.10.2":
+  version "5.10.2"
+  resolved "https://registry.yarnpkg.com/@mantine/spotlight/-/spotlight-5.10.2.tgz#158319b5d8beb0dac5523eb68c5e9b7dde626722"
+  integrity sha512-x0vtYXrRWyn5oesbjeyRheMz8iOJoCc/uXidljEbmzCty/ESju4DSfRtOMpHwoWl76ZHC0KBMVd5QdFg+6zmiQ==
+  dependencies:
+    "@mantine/utils" "5.10.2"
+
 "@mantine/ssr@5.10.2":
   version "5.10.2"
   resolved "https://registry.yarnpkg.com/@mantine/ssr/-/ssr-5.10.2.tgz#7893a11e1f79d996dc436a66114149427201d44f"
