@@ -1,5 +1,6 @@
 import { MantineThemeOverride } from "@mantine/core";
 import { Fira_Sans } from "@next/font/google";
+import { blue_1, white_3 } from "./colors";
 import { components } from "./components";
 
 export const fira_sans = Fira_Sans({
@@ -12,7 +13,11 @@ const theme: MantineThemeOverride = {
     globalStyles: theme => ({
         body: {
             overflowX: "hidden",
-            // background: theme.colors.gray[1],
+            background: white_3,
+            "&::selection": {
+                color: "white",
+                backgroundColor: blue_1,
+            },
             // colorScheme: "light",
         },
 

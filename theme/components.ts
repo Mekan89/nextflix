@@ -1,5 +1,5 @@
 import { MantineThemeComponents } from "@mantine/styles/lib/theme/types/MantineTheme";
-import { dark_2, gray_1 } from "./colors";
+import { blue_1, dark_2 } from "./colors";
 
 export const components: MantineThemeComponents = {
     AppShell: {
@@ -31,15 +31,15 @@ export const components: MantineThemeComponents = {
         },
     },
 
-    Input: {
-        styles: {
-            input: {
-                backgroundColor: gray_1,
-                color: "#ffffff",
-                borderColor: gray_1,
-            },
-        },
-    },
+    // Input: {
+    //     styles: {
+    //         input: {
+    //             backgroundColor: gray_1,
+    //             color: "#ffffff",
+    //             borderColor: gray_1,
+    //         },
+    //     },
+    // },
     Footer: {
         styles: {
             root: {
@@ -66,6 +66,16 @@ export const components: MantineThemeComponents = {
         styles: {
             root: {
                 position: "absolute",
+            },
+        },
+    },
+    Text: {
+        styles: {
+            root: {
+                "&::selection": {
+                    color: "white",
+                    background: blue_1,
+                },
             },
         },
     },

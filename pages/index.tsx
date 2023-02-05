@@ -1,4 +1,4 @@
-import { Container } from "@mantine/core";
+import { Box, Container } from "@mantine/core";
 import { Inter } from "@next/font/google";
 import Hero from "../components/Hero";
 import MovieList from "../components/MovieList";
@@ -11,13 +11,14 @@ type Props = {
 
 export default function Home() {
     return (
-        <>
+        <Box bg='white'>
             <Hero />
 
-            <Container size='xl'>
+            <Container>
                 <MovieList title='New movies' />
                 <MovieList title='New series' />
             </Container>
-        </>
+        </Box>
     );
 }
+11;

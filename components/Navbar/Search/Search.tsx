@@ -1,9 +1,17 @@
-import { Group, Input, MediaQuery, Stack } from "@mantine/core";
+import { CSSObject, Group, Input, MantineTheme, MediaQuery, Stack } from "@mantine/core";
 import { useDebouncedValue, useInputState, useMediaQuery } from "@mantine/hooks";
 import { IconChevronLeft, IconSearch, IconX } from "@tabler/icons-react";
 import { useState } from "react";
-import { searchInput } from "../../../theme/styles";
+import { gray_2 } from "../../../theme/colors";
 import SearchList from "./SearchList";
+
+const searchInput = (theme: MantineTheme): CSSObject => ({
+    input: {
+        backgroundColor: gray_2,
+        color: "#ffffff",
+        borderColor: gray_2,
+    },
+});
 
 const Search = ({}) => {
     const [visible, setVisible] = useState(false);

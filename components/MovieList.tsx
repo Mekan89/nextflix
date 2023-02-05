@@ -8,7 +8,7 @@ type Props = {
 
 const MovieList = ({ title }: Props) => {
     return (
-        <Stack my={60}>
+        <Stack py={60}>
             <Group position='apart' mb={40}>
                 <Text fz={30} fw={700}>
                     {title}

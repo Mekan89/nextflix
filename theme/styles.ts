@@ -1,13 +1,5 @@
 import { CSSObject, MantineTheme } from "@mantine/core";
-import { blue_1, gray_2 } from "./colors";
-
-export const searchInput = (theme: MantineTheme): CSSObject => ({
-    input: {
-        backgroundColor: gray_2,
-        color: "#ffffff",
-        borderColor: gray_2,
-    },
-});
+import { blue_1 } from "./colors";
 
 export const isActive = (theme: MantineTheme): CSSObject => ({
     position: "relative",
@@ -16,7 +8,7 @@ export const isActive = (theme: MantineTheme): CSSObject => ({
         position: "absolute",
         width: "100%",
         height: 3,
-        bottom: -7,
+        bottom: -5,
         left: 0,
         backgroundColor: blue_1,
     },
