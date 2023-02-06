@@ -3,7 +3,7 @@ import { gray_1 } from "../../theme/colors";
 
 const FilterChoices = ({}) => {
     return (
-        <Stack spacing={10}>
+        <Stack spacing={10} mb={20}>
             <Text sx={chip}>Rating: 1-10</Text>
             <Text sx={chip}>Year: 1960-2023</Text>
             <Text sx={chip}>Genre: All genres </Text>

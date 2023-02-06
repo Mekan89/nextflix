@@ -1,6 +1,5 @@
 import { Group, MantineTheme, NumberInput, RangeSlider } from "@mantine/core";
 import { useState } from "react";
-import { numberInput } from "./FilterItem";
 
 interface SliderProps {
     min: number;
@@ -45,4 +44,15 @@ const slider = (theme: MantineTheme) => ({
     },
     markFilled: {},
     markLabel: {},
+});
+
+export const numberInput = (theme: MantineTheme) => ({
+    root: {
+        "&:hover .mantine-NumberInput-rightSection": {
+            display: "block",
+        },
+    },
+    rightSection: {
+        display: "none",
+    },
 });

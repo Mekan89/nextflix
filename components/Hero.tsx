@@ -1,7 +1,7 @@
 import { Box, Button, Container, createStyles, Stack, Text, Title } from "@mantine/core";
 import { IconArrowRight } from "@tabler/icons-react";
 import Link from "next/link";
-import { filledBtn } from "../theme/styles";
+import { btnContained } from "../theme/styles";
 
 const useStyles = createStyles(theme => ({
     heroSection: {
@@ -37,7 +37,7 @@ const Hero = ({}) => {
                 <Stack spacing={35} c='white' className={classes.heroContent}>
                     <Title order={1}>Тор: Любовь и гром</Title>
                     <Text>Джейн Фостер берет на себя обязанности Бога-громовержца и становится обладательницей молота Мьёльнира.</Text>
-                    <Button component={Link} href={"film/1282688"} rightIcon={<IconArrowRight size={19} />} sx={filledBtn}>
+                    <Button component={Link} href={"film/1282688"} rightIcon={<IconArrowRight size={19} />} sx={btnContained}>
                         More
                     </Button>
                 </Stack>

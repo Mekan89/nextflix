@@ -1,5 +1,5 @@
 import { Button, Grid, Group, Stack, Text } from "@mantine/core";
-import { filledBtn } from "../theme/styles";
+import { btnContained } from "../theme/styles";
 import MovieCard from "./MovieCard";
 
 type Props = {
@@ -13,7 +13,7 @@ const MovieList = ({ title }: Props) => {
                 <Text fz={30} fw={700}>
                     {title}
                 </Text>
-                <Button sx={filledBtn}>Show All</Button>
+                <Button sx={btnContained}>Show All</Button>
             </Group>
             <Grid gutter='lg'>
                 <MovieCard />
@@ -25,7 +25,7 @@ const MovieList = ({ title }: Props) => {
                 <MovieCard />
             </Grid>
 
-            <Button w={200} mx='auto' sx={filledBtn}>
+            <Button w={200} mx='auto' sx={btnContained}>
                 Load More
             </Button>
         </Stack>

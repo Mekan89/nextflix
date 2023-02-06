@@ -7,11 +7,11 @@ const Films = ({}) => {
             <Title lh={1.8}>All films</Title>
             <Text>A selection of films from all over the world</Text>
 
-            <Grid mt={20}>
+            <Grid mt={40}>
                 <Grid.Col maw={270}>
                     <Filter />
                 </Grid.Col>
-                <Grid.Col span='auto'>
+                <Grid.Col span='auto' bg='red.2'>
                     <Text>Rest</Text>
                 </Grid.Col>
             </Grid>

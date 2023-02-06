@@ -1,4 +1,4 @@
-import { Accordion, createStyles, MantineTheme } from "@mantine/core";
+import { Accordion, createStyles } from "@mantine/core";
 import { IconChevronDown } from "@tabler/icons-react";
 
 interface Props {
@@ -17,7 +17,6 @@ const FilterItem = ({ name, children }: Props) => {
         <Accordion
             defaultValue={["rating", "Years between", "Genre", "Released year"]}
             multiple
-            mt={31}
             chevron={<IconChevronDown size={20} />}
             classNames={{
                 item: classes.item,
@@ -27,7 +26,7 @@ const FilterItem = ({ name, children }: Props) => {
                 content: classes.content,
             }}>
             <Accordion.Item value='rating'>
-                <Accordion.Control mb={12} px={0} py={8}>
+                <Accordion.Control mb={10} px={0} py={7}>
                     {name}
                 </Accordion.Control>
                 <Accordion.Panel>{children}</Accordion.Panel>
@@ -41,6 +40,9 @@ export default FilterItem;
 const useStyles = createStyles(theme => ({
     item: {
         border: 0,
+        "&[data-active]": {
+            marginBottom: 40,
+        },
     },
 
     control: {
@@ -51,7 +53,6 @@ const useStyles = createStyles(theme => ({
     label: {
         fontWeight: "bold",
         fontSize: 16,
-        // lineHeight: 2,
     },
     icon: {
         margin: 0,
@@ -60,22 +61,3 @@ const useStyles = createStyles(theme => ({
         padding: 0,
     },
 }));
-
-export const numberInput = (theme: MantineTheme) => ({
-    wrapper: {
-        // padding: 0,
-        // margin: 0,
-    },
-    root: {
-        // padding: 0,
-        "&:hover .mantine-NumberInput-rightSection": {
-            display: "block",
-        },
-    },
-
-    input: {},
-    rightSection: {
-        display: "none",
-    },
-    control: {},
-});
