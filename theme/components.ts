@@ -6,6 +6,8 @@ export const components: MantineThemeComponents = {
         styles: {
             main: {
                 padding: 0,
+                // height: "calc(100vh - 170px)", //Header + Footer height
+                // flexGrow: 1,
             },
         },
     },
@@ -46,7 +48,12 @@ export const components: MantineThemeComponents = {
                 border: 0,
                 backgroundColor: dark_2,
                 color: "#fff",
-                position: "static",
+                // marginTop: "30px",
+                position: "sticky",
+                top: "100vh",
+                bottom: 0,
+                left: 0,
+                right: 0,
             },
         },
     },

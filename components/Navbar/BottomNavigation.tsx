@@ -27,10 +27,8 @@ const BottomNavigation = ({}) => {
     const pathname = usePathname();
     const [value, setValue] = useState("movies");
 
-    console.log(pathname);
-
     return (
-        <Group bg='#141414' grow pos='sticky' bottom={0} py={15}>
+        <Group bg='#141414' grow pos='fixed' right={0} left={0} bottom={0} py={15}>
             {items.map(({ title, route, icon }, i) => {
                 const isCurrenPage = pathname === route;
 

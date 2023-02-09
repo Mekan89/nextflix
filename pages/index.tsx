@@ -11,7 +11,7 @@ type Props = {
 
 export default function Home() {
     return (
-        <Box bg='white'>
+        <Box bg='white' pb={{ base: 50, sm: 0 }}>
             <Hero />
 
             <Container>
@@ -21,4 +21,3 @@ export default function Home() {
         </Box>
     );
 }
-11;
