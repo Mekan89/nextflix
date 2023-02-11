@@ -31,6 +31,11 @@ export const components: MantineThemeComponents = {
         defaultProps: {
             size: "md",
         },
+        styles: {
+            // "@media (max-width: 400px)": {
+            inner: {},
+            // },
+        },
     },
 
     // Input: {

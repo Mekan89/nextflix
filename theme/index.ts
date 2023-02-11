@@ -19,6 +19,7 @@ const theme: MantineThemeOverride = {
         },
 
         a: {
+            color: "inherit",
             textDecoration: "none",
         },
     }),

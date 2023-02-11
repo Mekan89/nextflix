@@ -1,33 +1,29 @@
-import { Box, Pagination } from "@mantine/core";
+import { Box, Stack } from "@mantine/core";
+import { useMediaQuery } from "@mantine/hooks";
+import { useState } from "react";
 import MovieFilterCard from "./MovieFilterCard";
+import Pagination from "./Pagination";
 
 const Content = ({}) => {
+    const [activePage, setPage] = useState(1);
+    const isMobile = useMediaQuery("(max-width: 600px)");
     return (
-        <Box>
-            <MovieFilterCard />
-            <MovieFilterCard />
-            <MovieFilterCard />
-            <MovieFilterCard />
-            <MovieFilterCard />
-            <MovieFilterCard />
-            <MovieFilterCard />
-            <MovieFilterCard />
-            <MovieFilterCard />
-            <MovieFilterCard />
-            <Pagination total={5200} />
-        </Box>
+        <Stack>
+            <Box>
+                <MovieFilterCard />
+                <MovieFilterCard />
+                <MovieFilterCard />
+                <MovieFilterCard />
+                <MovieFilterCard />
+                <MovieFilterCard />
+                <MovieFilterCard />
+                <MovieFilterCard />
+                <MovieFilterCard />
+                <MovieFilterCard />
+            </Box>
+            <Pagination page={activePage} onChange={() => setPage} total={500} />
+        </Stack>
     );
 };
 
 export default Content;
-
-// <Image layout='fill' />/
-// imageContainer: {
-//     position: 'relative',
-// 	width: 32,
-// 	height: 48,
-// 	flex-shrink: 0,
-// 	display: 'block',
-// 	border-radius: 5,
-// 	overflow: 'hidden',
-// }

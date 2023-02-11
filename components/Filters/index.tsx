@@ -1,4 +1,4 @@
-import { Box, Button } from "@mantine/core";
+import { Button } from "@mantine/core";
 import { useState } from "react";
 import { btnContained, btnOutlined } from "../../theme/styles";
 import FilterChoices from "./FilterChoices";
@@ -11,7 +11,7 @@ const Filters = ({}) => {
     const [value, setValue] = useState(0);
     const year = new Date().getFullYear();
     return (
-        <Box>
+        <>
             <FilterChoices />
             <FilterItem name='Rating'>
                 <Slider step={1} min={1} max={10} values={[1, 10]} />
@@ -31,7 +31,7 @@ const Filters = ({}) => {
             <Button sx={btnOutlined} fullWidth>
                 Reset
             </Button>
-        </Box>
+        </>
     );
 };
 
