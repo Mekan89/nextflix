@@ -12,9 +12,9 @@ export const fira_sans = Fira_Sans({
 const theme: MantineThemeOverride = {
     globalStyles: theme => ({
         body: {
-            overflowX: "hidden",
             background: white_3,
-            height: "100vh",
+            // overflowX: "hidden",
+            // height: "100%",
             // colorScheme: "light",
         },
 

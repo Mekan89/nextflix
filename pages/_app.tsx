@@ -1,12 +1,10 @@
-import { AppShell, MantineProvider, useMantineTheme } from "@mantine/core";
+import { MantineProvider, useMantineTheme } from "@mantine/core";
 import { useMediaQuery } from "@mantine/hooks";
 import { AppProps } from "next/app";
-import BottomNavigation from "../components/Navbar/BottomNavigation";
 
 import { Provider } from "jotai";
-import Footer from "../components/Footer";
 import Head from "../components/Head";
-import Header from "../components/Navbar/Header";
+import Layout from "../components/Layout";
 import mantineTheme from "../theme";
 
 export default function App(props: AppProps) {
@@ -19,9 +17,13 @@ export default function App(props: AppProps) {
             <Head />
             <Provider>
                 <MantineProvider withGlobalStyles withNormalizeCSS theme={mantineTheme}>
-                    <AppShell header={<Header />} footer={isMobile ? <BottomNavigation /> : <Footer />}>
+                    <Layout>
                         <Component {...pageProps} />
-                    </AppShell>
+                    </Layout>
+
+                    {/* <AppShell header={<Header />} footer={isMobile ? <BottomNavigation /> : <Footer />}>
+                        <Component {...pageProps} />
+                    </AppShell> */}
                 </MantineProvider>
             </Provider>
         </>

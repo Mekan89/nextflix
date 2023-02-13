@@ -5,9 +5,9 @@ import { navLink } from "../theme/styles";
 
 const Footer = ({}) => {
     return (
-        <MantineFooter height={100}>
+        <MantineFooter height={110}>
             <Container>
-                <Group position='apart' h={100}>
+                <Group position='apart' h={110}>
                     <Text component={Link} href='/' fz={26} c='blue.8' fw='bold'>
                         NEXTFLIX
                     </Text>

@@ -17,11 +17,15 @@ const useStyles = createStyles(theme => ({
         position: "absolute",
         top: theme.spacing.md,
         left: theme.spacing.md,
-        background: "green",
         color: theme.white,
         fontWeight: "bold",
-        padding: `${theme.spacing.xs / 3}px ${theme.spacing.xs / 2}px`,
         borderRadius: theme.radius.md,
+        width: 37,
+        textAlign: "center",
+        display: "flex",
+        justifyContent: "center",
+        background: "green",
+        padding: "5px 10px",
     },
 }));
 

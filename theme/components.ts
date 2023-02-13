@@ -2,27 +2,52 @@ import { MantineThemeComponents } from "@mantine/styles/lib/theme/types/MantineT
 import { blue_1, dark_2 } from "./colors";
 
 export const components: MantineThemeComponents = {
-    AppShell: {
-        styles: {
-            main: {
-                padding: 0,
-                // height: "calc(100vh - 170px)", //Header + Footer height
-                // flexGrow: 1,
-            },
-        },
-    },
+    // AppShell: {
+    //     styles: {
+    //         body: {
+    //             // display: "flex",
+    //             // minHeight: "100%",
+    //             // minHeight: "100vh",
+    //             // flex: 1,
+    //         },
+    //         root: {
+    //             // minHeight: "100%",
+    //             // flex: 1,
+    //             // minHeight: "min-content",
+    //             // height: "100vh",
+    //             // display: "flex",
+    //             // flexDirection: "column",
+    //             // justifyContent: "space-between",
+    //             // overflowX: "hidden",
+    //         },
+    //         main: {
+    //             padding: 0,
+    //             // minHeight: "calc(100vh - 155px)", //Header + Footer height
+    //             // flex: 1,
+    //             // height: "100vh",
+    //             // minHeight: "100%",
+    //             // maxHeight: "100vh",
+    //             // overflow: "auto",
+    //             // height: "100%",
+    //             // flex: "auto",
+    //             // flexGrow: 1,
+    //             // flex: "1 1 0",
+    //             // display:flex,
+    //         },
+    //     },
+    // },
     Container: {
         defaultProps: {
-            // sizes: {
-            //     xl: 1420,
-            // },
             size: "xl",
-            styles: {
-                root: {
-                    padding: "0 50px",
-                    "@media (max-width: 800px)": {
-                        padding: "0 20px",
-                    },
+        },
+        styles: {
+            root: {
+                // height: "fit-content",
+                // minHeight: "100%",
+                height: "100%",
+                padding: "0 50px",
+                "@media (max-width: 800px)": {
+                    padding: "0 20px",
                 },
             },
         },
@@ -33,7 +58,9 @@ export const components: MantineThemeComponents = {
         },
         styles: {
             // "@media (max-width: 400px)": {
-            inner: {},
+            root: {
+                "&:hover": {},
+            },
             // },
         },
     },
@@ -53,20 +80,13 @@ export const components: MantineThemeComponents = {
                 border: 0,
                 backgroundColor: dark_2,
                 color: "#fff",
-                // marginTop: "30px",
-                position: "sticky",
-                top: "100vh",
-                bottom: 0,
-                left: 0,
-                right: 0,
             },
         },
     },
     Header: {
         styles: {
             root: {
-                position: "sticky",
-                top: 0,
+                position: "static",
                 border: 0,
                 backgroundColor: dark_2,
                 color: "#fff",
