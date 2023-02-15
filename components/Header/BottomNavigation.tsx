@@ -16,11 +16,11 @@ const bottomNavbar = (theme: MantineTheme, props?: any): CSSObject => ({
 });
 
 const items = [
-    { title: "Home", route: "/", icon: <IconHome size={30} /> },
-    { title: "Movies", route: "/movies", icon: <IconMasksTheater size={30} /> },
-    { title: "Series", route: "/series", icon: <Icon24Hours size={30} /> },
-    { title: "Cartoons", route: "/cartoons", icon: <IconMovie size={30} /> },
-    { title: "Favorites", route: "/favorites", icon: <IconHeart size={30} /> },
+    { title: "Home", route: "/", icon: <IconHome size={23} /> },
+    { title: "Movies", route: "/movies", icon: <IconMasksTheater size={23} /> },
+    { title: "Series", route: "/series", icon: <Icon24Hours size={23} /> },
+    { title: "Cartoons", route: "/cartoons", icon: <IconMovie size={23} /> },
+    { title: "Favorites", route: "/favorites", icon: <IconHeart size={23} /> },
 ];
 
 const BottomNavigation = ({}) => {

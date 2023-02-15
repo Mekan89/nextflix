@@ -1,8 +1,8 @@
-import { Flex, useMantineTheme } from "@mantine/core";
+import { Box, useMantineTheme } from "@mantine/core";
 import { useMediaQuery } from "@mantine/hooks";
 import Footer from "./Footer";
-import BottomNavigation from "./Navbar/BottomNavigation";
-import Header from "./Navbar/Header";
+import BottomNavigation from "./Header/BottomNavigation";
+import Header from "./Header/Header";
 
 interface Props {
     children: React.ReactNode;
@@ -13,11 +13,17 @@ const Layout = ({ children }: Props) => {
     const isMobile = useMediaQuery(`(max-width: ${theme.breakpoints.sm}px)`);
 
     return (
-        <Flex direction='column' h='100vh'>
+        <Box
+            mih='100vh'
+            style={{
+                display: "grid",
+                gridTemplateColumns: "100%",
+                gridTemplateRows: "auto 1fr auto",
+            }}>
             <Header />
-            <main style={{ flex: 1 }}>{children}</main>
+            <main>{children}</main>
             {isMobile ? <BottomNavigation /> : <Footer />}
-        </Flex>
+        </Box>
     );
 };
 

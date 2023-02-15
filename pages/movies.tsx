@@ -8,15 +8,15 @@ import Filters from "../components/Filters";
 import Modal from "../components/Modal";
 import { btnOutlined } from "../theme/styles";
 
-const Films = ({}) => {
+const Movies = ({}) => {
     const theme = useMantineTheme();
     const isTablet = useMediaQuery(`(max-width: ${theme.breakpoints.md}px)`);
     const setFilterView = useSetAtom(filterAtom);
 
     return (
-        <Container px={{ base: 10, sm: 40 }} py={50} bg='white'>
-            <Title>All films</Title>
-            <Text my={20}>A selection of films from all over the world</Text>
+        <Container px={{ base: 10, sm: 40 }} pt={50} pb={120} bg='white'>
+            <Title fz={40}>All movies</Title>
+            <Text my={20}>A selection of movies from all over the world</Text>
             {isTablet && (
                 <>
                     <Button onClick={() => setFilterView(true)} sx={btnOutlined} leftIcon={<IconAdjustments size={20} />}>
@@ -43,4 +43,4 @@ const Films = ({}) => {
     );
 };
 
-export default Films;
+export default Movies;

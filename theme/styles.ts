@@ -38,7 +38,6 @@ export const navLink = (theme: MantineTheme): CSSObject => ({
 
 export const btnContained = (theme: MantineTheme): CSSObject => ({
     backgroundColor: blue_1,
-    transition: "0.3s",
     fontWeight: "bold",
     "&:hover": {
         color: theme.white,
@@ -50,7 +49,6 @@ export const btnOutlined = (theme: MantineTheme): CSSObject => ({
     backgroundColor: "white",
     color: blue_1,
     borderColor: blue_1,
-    transition: "0.3s",
     fontWeight: "bold",
     "&:hover": {
         color: "white",

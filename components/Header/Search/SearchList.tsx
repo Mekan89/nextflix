@@ -1,6 +1,7 @@
-import { createStyles, Paper } from "@mantine/core";
+import { Box, createStyles, Paper, ScrollArea, Tabs } from "@mantine/core";
 import { useState } from "react";
 import { dark_1, dark_2, gray_3 } from "../../../theme/colors";
+import SearchItem from "./SearchItem";
 
 const SearchList = ({}) => {
     const [activeTab, setActiveTab] = useState<string | null>("films");
@@ -8,7 +9,7 @@ const SearchList = ({}) => {
 
     return (
         <Paper bg='#333' className={classes.wrapper}>
-            {/* <Tabs
+            <Tabs
                 keepMounted={false}
                 defaultValue='films'
                 variant='outline'
@@ -45,7 +46,7 @@ const SearchList = ({}) => {
                 <Box py={10} px={15} fz={14} fw='bold' c='gray.3' bg={dark_2} sx={{ ":hover": { backgroundColor: "black" } }}>
                     Show All
                 </Box>
-            </Tabs> */}
+            </Tabs>
         </Paper>
     );
 };

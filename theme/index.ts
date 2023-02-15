@@ -13,11 +13,11 @@ const theme: MantineThemeOverride = {
     globalStyles: theme => ({
         body: {
             background: white_3,
-            // overflowX: "hidden",
-            // height: "100%",
+            overflowX: "hidden",
+            // minHeight: "100%",
+            // maxHeight: "100%",
             // colorScheme: "light",
         },
-
         a: {
             color: "inherit",
             textDecoration: "none",

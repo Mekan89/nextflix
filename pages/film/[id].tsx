@@ -16,6 +16,7 @@ const Film = ({}) => {
             </UnstyledButton>
             <Stack>
                 <FilmInfo />
+
                 <FilmTab />
             </Stack>
         </Container>
