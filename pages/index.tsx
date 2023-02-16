@@ -14,7 +14,7 @@ export default function Home() {
         <Box bg='white' pb={{ base: 50, sm: 0 }}>
             <Hero />
 
-            <Container>
+            <Container px={{ base: 20, sm: 40 }}>
                 <MovieList title='New movies' />
                 <MovieList title='New series' />
             </Container>

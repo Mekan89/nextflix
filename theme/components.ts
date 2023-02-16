@@ -50,13 +50,7 @@ export const components: MantineThemeComponents = {
         },
         styles: {
             root: {
-                // height: "fit-content",
-                // minHeight: "100%",
                 height: "100%",
-                padding: "0 50px",
-                "@media (max-width: 800px)": {
-                    // padding: "0 20px",
-                },
             },
         },
     },

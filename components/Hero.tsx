@@ -33,7 +33,7 @@ const Hero = ({}) => {
 
     return (
         <Box className={classes.heroSection}>
-            <Container>
+            <Container px={{ base: 20, sm: 40 }}>
                 <Stack spacing={35} c='white' className={classes.heroContent}>
                     <Title order={1}>Тор: Любовь и гром</Title>
                     <Text>Джейн Фостер берет на себя обязанности Бога-громовержца и становится обладательницей молота Мьёльнира.</Text>

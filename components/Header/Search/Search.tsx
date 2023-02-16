@@ -1,43 +1,74 @@
-import { Group, Input, MantineTheme, Stack } from "@mantine/core";
+import { ActionIcon, createStyles, Group, Input, Stack, useMantineTheme } from "@mantine/core";
 import { useDebouncedValue, useInputState, useMediaQuery } from "@mantine/hooks";
 import { IconChevronLeft, IconSearch, IconX } from "@tabler/icons-react";
-import { useState } from "react";
-import { gray_2 } from "../../../theme/colors";
+import { useAtom } from "jotai";
+import { activeSearchAtom } from "../../../atoms";
+import { blue_1, gray_2 } from "../../../theme/colors";
 import SearchList from "./SearchList";
 
-const searchInput = (theme: MantineTheme) => ({
+// const searchInput = (theme: MantineTheme) => ({
+const useStyles = createStyles(theme => ({
     wrapper: {
+        flex: "1 1 0",
+        // flexGrow: 1,
+        // backgroundColor: "red",
         [theme.fn.smallerThan("sm")]: {
-            display: "none",
+            // display: "none",
+            "&:focus-within": {
+                border: "none",
+                borderBottom: `1px solid ${blue_1}`,
+            },
         },
     },
     input: {
         backgroundColor: gray_2,
         color: "#ffffff",
         borderColor: gray_2,
+
+        // width: "100%",
+        [theme.fn.smallerThan("sm")]: {
+            // display: "none",
+            // outline: "none",
+
+            background: "transparent",
+            border: "none",
+        },
         // [theme.fn.smallerThan("md")]: {
         //     display: "none",
         // },
     },
+    withIcon: {},
     rightSection: {
-        color: "white",
+        cursor: "pointer",
     },
-});
+    //     color: "white",
+    //     // pointerEvents: "none",
+    //     [theme.fn.smallerThan("sm")]: {
+    //         display: "none",
+    //     },
+    // },
+    // icon: {
+    //     cursor: "pointer",
+    // },
+}));
 
 const Search = ({}) => {
-    const [visible, setVisible] = useState(false);
-    const isMobile = useMediaQuery("max-width: 600px");
-    const [query, setQuery] = useInputState("");
+    const { classes, cx } = useStyles();
+    const [visible, setVisible] = useAtom(activeSearchAtom);
+    const theme = useMantineTheme();
+    const isMobile = useMediaQuery(`(max-width: ${theme.breakpoints.sm}px)`);
+
+    const [value, setValue] = useInputState("");
     // const [query, setQuery] = useAtom(queryAtom);
-    const debouncedQuery = useDebouncedValue(query, 500);
+    const debouncedQuery = useDebouncedValue(value, 500);
 
-    console.log(debouncedQuery);
+    const handleVisibility = () => {
+        if (isMobile) {
+            setVisible(!visible);
+            setValue("");
+        }
+    };
 
-    // const findMovie = e => {
-    //     if (value.trim() && isMobile) {
-    //         setVisible(true);
-    //     }
-    // };
     // const onKeyPress = (e: React.KeyboardEvent) => {
     // 	if (e.key === 'Enter') {
     // 		onClickSignup();
@@ -56,24 +87,47 @@ const Search = ({}) => {
         <>
             {/* <Flex align='center' gap={3}> */}
             {/* <Flex direction='column' pos='relative' w={400}> */}
-            <Stack pos='relative' w={{ base: "100%", sm: 430 }}>
-                <Group c='#fff'>
-                    {isMobile && <IconChevronLeft />}
+
+            {/* {!isMobile && ( */}
+            <Stack pos='relative' w={{ base: "100%", sm: 410 }}>
+                <Group c='#fff' spacing={1}>
+                    {/* {isMobile && (
+                        <ActionIcon onClick={() => setVisible(true)} bg='red'>
+                            <IconChevronLeft />
+                        </ActionIcon>
+                    )} */}
+
+                    {visible && (
+                        <ActionIcon onClick={handleVisibility} variant='transparent'>
+                            {/* <IconChevronLeft color='white' onClick={handleVisibility} /> */}
+                            <IconChevronLeft color='white' />
+                        </ActionIcon>
+                    )}
                     <Input
-                        styles={searchInput}
-                        icon={<IconSearch size={16} />}
+                        // icon={!isMobile ? <IconSearch size={16} /> : undefined}
+                        classNames={{
+                            wrapper: classes.wrapper,
+                            input: classes.input,
+                            rightSection: classes.rightSection,
+                        }}
                         placeholder='Search'
-                        w='100%'
-                        value={query}
+                        display={{ base: visible ? "flex" : "none", sm: "flex" }}
+                        value={value}
                         // onChange={e => setQuery(e.target.value)}
-                        onChange={setQuery}
-                        maxLength={50}
-                        rightSection={query.trim() ? <IconX size={18} /> : <></>}
+                        onChange={setValue}
+                        // onBlur={handleVisibility}
+                        autoFocus
+                        maxLength={100}
+                        rightSection={value.trim() && <IconX size={18} color='white' onClick={() => setValue("")} />}
                         // onKeyPress={onKeyPress}
                     />
+                    {!visible && (
+                        <ActionIcon onClick={handleVisibility} bg='red' ml='auto'>
+                            <IconSearch size={20} />
+                        </ActionIcon>
+                    )}
                 </Group>
-                {isMobile ? <IconSearch size={20} /> : null}
-                {query.trim() ? <SearchList /> : null}
+                {value.trim() && <SearchList />}
             </Stack>
         </>
     );
