@@ -2,6 +2,7 @@ import { ActionIcon, createStyles, Group, Input, Stack, useMantineTheme } from "
 import { useDebouncedValue, useInputState, useMediaQuery } from "@mantine/hooks";
 import { IconChevronLeft, IconSearch, IconX } from "@tabler/icons-react";
 import { useAtom } from "jotai";
+import { useRef } from "react";
 import { activeSearchAtom } from "../../../atoms";
 import { blue_1, gray_2 } from "../../../theme/colors";
 import SearchList from "./SearchList";
@@ -57,15 +58,22 @@ const Search = ({}) => {
     const [visible, setVisible] = useAtom(activeSearchAtom);
     const theme = useMantineTheme();
     const isMobile = useMediaQuery(`(max-width: ${theme.breakpoints.sm}px)`);
-
+    const ref = useRef<HTMLInputElement>(null);
     const [value, setValue] = useInputState("");
     // const [query, setQuery] = useAtom(queryAtom);
     const debouncedQuery = useDebouncedValue(value, 500);
 
     const handleVisibility = () => {
+        setVisible(false);
+        setValue("");
+    };
+
+    console.log(isMobile);
+
+    const handleClick = () => {
         if (isMobile) {
-            setVisible(!visible);
-            setValue("");
+            ref.current?.focus();
+            setVisible(true);
         }
     };
 
@@ -85,45 +93,38 @@ const Search = ({}) => {
         //     </IconButton>
         // </Flex>
         <>
-            {/* <Flex align='center' gap={3}> */}
-            {/* <Flex direction='column' pos='relative' w={400}> */}
-
-            {/* {!isMobile && ( */}
-            <Stack pos='relative' w={{ base: "100%", sm: 410 }}>
+            <Stack pos='relative' w={{ base: "100%", sm: 430 }}>
                 <Group c='#fff' spacing={1}>
-                    {/* {isMobile && (
-                        <ActionIcon onClick={() => setVisible(true)} bg='red'>
-                            <IconChevronLeft />
-                        </ActionIcon>
-                    )} */}
-
-                    {visible && (
+                    {visible === isMobile && (
                         <ActionIcon onClick={handleVisibility} variant='transparent'>
-                            {/* <IconChevronLeft color='white' onClick={handleVisibility} /> */}
                             <IconChevronLeft color='white' />
                         </ActionIcon>
                     )}
-                    <Input
-                        // icon={!isMobile ? <IconSearch size={16} /> : undefined}
-                        classNames={{
-                            wrapper: classes.wrapper,
-                            input: classes.input,
-                            rightSection: classes.rightSection,
-                        }}
-                        placeholder='Search'
-                        display={{ base: visible ? "flex" : "none", sm: "flex" }}
-                        value={value}
-                        // onChange={e => setQuery(e.target.value)}
-                        onChange={setValue}
-                        // onBlur={handleVisibility}
-                        autoFocus
-                        maxLength={100}
-                        rightSection={value.trim() && <IconX size={18} color='white' onClick={() => setValue("")} />}
-                        // onKeyPress={onKeyPress}
-                    />
+                    {visible === isMobile && (
+                        <Input
+                            classNames={{
+                                wrapper: classes.wrapper,
+                                input: classes.input,
+                                rightSection: classes.rightSection,
+                            }}
+                            placeholder='Search'
+                            // display={{ base: visible ? "flex" : "none", sm: "flex" }}
+                            value={value}
+                            onChange={setValue}
+                            // autoFocus={visible}
+                            maxLength={100}
+                            autoFocus
+                            ref={ref}
+                            rightSection={value.trim() && <IconX size={18} color='white' onClick={() => setValue("")} />}
+                            // onChange={e => setQuery(e.target.value)}
+                            // onBlur={handleVisibility}
+                            // onKeyPress={onKeyPress}
+                        />
+                    )}
+
                     {!visible && (
-                        <ActionIcon onClick={handleVisibility} bg='red' ml='auto'>
-                            <IconSearch size={20} />
+                        <ActionIcon onClick={handleClick} ml='auto' variant='transparent'>
+                            <IconSearch size={20} color='white' />
                         </ActionIcon>
                     )}
                 </Group>

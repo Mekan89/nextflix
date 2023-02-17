@@ -1,4 +1,5 @@
-import { MantineTheme, Radio as MantineRadio } from "@mantine/core";
+import { MantineTheme, Radio as MantineRadio, useMantineTheme } from "@mantine/core";
+import { useMediaQuery } from "@mantine/hooks";
 import { useState } from "react";
 import { blue_4 } from "../../theme/colors";
 
@@ -8,8 +9,11 @@ import { blue_4 } from "../../theme/colors";
 
 const Radio = ({}) => {
     const [value, setValue] = useState("new");
+    const theme = useMantineTheme();
+    const isMobile = useMediaQuery(`(max-width: ${theme.breakpoints.sm}px)`);
+
     return (
-        <MantineRadio.Group value={value} onChange={setValue} orientation='vertical' spacing='sm'>
+        <MantineRadio.Group value={value} onChange={setValue} orientation='horizontal' spacing={40}>
             <MantineRadio value='new' label='New to Old' styles={radioStyles} />
             <MantineRadio value='old' label='Old to New' styles={radioStyles} />
         </MantineRadio.Group>

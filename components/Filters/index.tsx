@@ -1,5 +1,5 @@
-import { Button } from "@mantine/core";
-import { useState } from "react";
+import { Box, Button } from "@mantine/core";
+import React, { useState } from "react";
 import { btnContained, btnOutlined } from "../../theme/styles";
 import FilterChoices from "./FilterChoices";
 import FilterItem from "./FilterItem";
@@ -10,8 +10,13 @@ import Slider from "./Slider";
 const Filters = ({}) => {
     const [value, setValue] = useState(0);
     const year = new Date().getFullYear();
+
+    const handleSubmit = (e: React.SyntheticEvent) => {
+        e.preventDefault();
+    };
+
     return (
-        <>
+        <Box component='form' onSubmit={handleSubmit} pos='sticky' top={50}>
             <FilterChoices />
             <FilterItem name='Rating'>
                 <Slider step={1} min={1} max={10} values={[1, 10]} />
@@ -31,7 +36,7 @@ const Filters = ({}) => {
             <Button sx={btnOutlined} fullWidth>
                 Reset
             </Button>
-        </>
+        </Box>
     );
 };
 

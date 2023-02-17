@@ -8,7 +8,7 @@ const SearchList = ({}) => {
     const { classes, cx } = useStyles();
 
     return (
-        <Paper bg='#333' className={classes.wrapper}>
+        <Paper bg='#333' className={classes.wrapper} maw={{ base: "100%", sm: 400 }}>
             <Tabs
                 keepMounted={false}
                 defaultValue='films'
@@ -40,8 +40,16 @@ const SearchList = ({}) => {
                         <SearchItem />
                     </ScrollArea.Autosize>
                 </Tabs.Panel>
-                <Tabs.Panel value='series'>Second panel</Tabs.Panel>
-                <Tabs.Panel value='cartoons'>Third panel</Tabs.Panel>
+                <Tabs.Panel value='series'>
+                    <SearchItem />
+                    <SearchItem />
+                    <SearchItem />
+                </Tabs.Panel>
+                <Tabs.Panel value='cartoons'>
+                    <SearchItem />
+                    <SearchItem />
+                    <SearchItem />
+                </Tabs.Panel>
 
                 <Box py={10} px={15} fz={14} fw='bold' c='gray.3' bg={dark_2} sx={{ ":hover": { backgroundColor: "black" } }}>
                     Show All

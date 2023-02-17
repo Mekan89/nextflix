@@ -24,21 +24,18 @@ const Header = ({}) => {
                 <Group noWrap position='apart' h={70} pos='relative'>
                     <Group>
                         {!isMobile && <BurgerMenu />}
-                        {!visible ? (
-                            <Text component={Link} href='/' fz={26} c='blue.8' fw='bold'>
-                                NEXTFLIX
-                            </Text>
-                        ) : undefined}
+
+                        <Text component={Link} href='/' fz={26} c='blue.8' fw='bold' display={{ base: visible ? "none" : "block", sm: "block" }}>
+                            NEXTFLIX
+                        </Text>
                     </Group>
 
                     <Search />
 
                     <Group>
-                        {!visible ? (
-                            <Text fz={18} sx={navLink}>
-                                Login
-                            </Text>
-                        ) : null}
+                        <Text fz={18} sx={navLink} display={{ base: visible ? "none" : "block", sm: "block" }}>
+                            Login
+                        </Text>
                     </Group>
                 </Group>
             </Container>
