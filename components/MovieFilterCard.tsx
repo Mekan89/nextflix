@@ -1,4 +1,5 @@
-import { Button, createStyles, Divider, Flex, Group, Image, Stack, Text, Title, useMantineTheme } from "@mantine/core";
+import { Button, createStyles, Divider, Group, Image, Stack, Text, Title, useMantineTheme } from "@mantine/core";
+import { useMediaQuery } from "@mantine/hooks";
 import { IconBookmark } from "@tabler/icons-react";
 import Link from "next/link";
 import { gray_1, white_1 } from "../theme/colors";
@@ -7,6 +8,7 @@ import Rating from "./Rating";
 const MovieFilterCard = ({}) => {
     const { classes, cx } = useStyles();
     const theme = useMantineTheme();
+    const isMobile = useMediaQuery(`(max-width: ${theme.breakpoints.sm}px)`);
 
     return (
         <>
@@ -26,15 +28,13 @@ const MovieFilterCard = ({}) => {
                             Макколл может собрать новых союзников и старых друзей, чтобы дать ему отпор.
                         </Text>
                     </Stack>
-                    <Flex align='center' direction={{ base: "column", sm: "row" }} gap={{ base: 10, sm: 20 }} ml='auto'>
-                        {/* <Group position={{ xs: "center", md: "right" }} ml='auto'> */}
-                        {/* <Group ml='auto' position='left'> */}
+
+                    <Group position={isMobile ? "center" : "right"} ml='auto'>
                         <Rating className={classes.rating} rating={5.9} />
                         <Button leftIcon={<IconBookmark fill={gray_1} size={16} />} className={classes.button}>
-                            Watch later
+                            Watchlist
                         </Button>
-                        {/* </Group> */}
-                    </Flex>
+                    </Group>
                 </Group>
             </Link>
         </>

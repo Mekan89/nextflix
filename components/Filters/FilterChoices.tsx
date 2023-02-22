@@ -17,8 +17,6 @@ export default FilterChoices;
 export const chip = (theme: MantineTheme): CSSObject => ({
     border: `1px solid ${gray_1}`,
     width: "fit-content",
-    // display: "inline-flex",
-    // alignItems: "center",
     borderRadius: 5,
     padding: "3px 8px",
     fontSize: 14,

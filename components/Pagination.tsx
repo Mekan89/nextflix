@@ -10,7 +10,7 @@ interface Props {
 
 const Pagination = ({ page, onChange, total }: Props) => {
     const theme = useMantineTheme();
-    const isMobile = useMediaQuery("(max-width: 768px)");
+    const isMobile = useMediaQuery(`(max-width: ${theme.breakpoints.sm}px)`);
 
     return (
         <Box px={{ base: 0, md: 25 }}>
@@ -31,9 +31,5 @@ const pagination = (theme: MantineTheme) => ({
             color: "white",
             backgroundColor: blue_1,
         },
-        // [theme.fn.smallerThan("xs")]: {
-        //     // width: 26,
-        //     // height: 26,
-        // },
     },
 });

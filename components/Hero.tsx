@@ -3,6 +3,27 @@ import { IconArrowRight } from "@tabler/icons-react";
 import Link from "next/link";
 import { btnContained } from "../theme/styles";
 
+const Hero = ({}) => {
+    const { classes } = useStyles();
+
+    return (
+        <Box className={classes.heroSection}>
+            <Container px={{ base: 20, sm: 40 }}>
+                <Stack spacing={35} c='white' className={classes.heroContent}>
+                    <Title order={1}>Thor: Love and Thunder</Title>
+                    {/* {movie? movie.overview : ""} */}
+                    <Text>Джейн Фостер берет на себя обязанности Бога-громовержца и становится обладательницей молота Мьёльнира.</Text>
+                    <Button component={Link} href={"film/1282688"} rightIcon={<IconArrowRight size={19} />} sx={btnContained}>
+                        More
+                    </Button>
+                </Stack>
+            </Container>
+        </Box>
+    );
+};
+
+export default Hero;
+
 const useStyles = createStyles(theme => ({
     heroSection: {
         height: "470px",
@@ -27,23 +48,3 @@ const useStyles = createStyles(theme => ({
         width: "100%",
     },
 }));
-
-const Hero = ({}) => {
-    const { classes } = useStyles();
-
-    return (
-        <Box className={classes.heroSection}>
-            <Container px={{ base: 20, sm: 40 }}>
-                <Stack spacing={35} c='white' className={classes.heroContent}>
-                    <Title order={1}>Тор: Любовь и гром</Title>
-                    <Text>Джейн Фостер берет на себя обязанности Бога-громовержца и становится обладательницей молота Мьёльнира.</Text>
-                    <Button component={Link} href={"film/1282688"} rightIcon={<IconArrowRight size={19} />} sx={btnContained}>
-                        More
-                    </Button>
-                </Stack>
-            </Container>
-        </Box>
-    );
-};
-
-export default Hero;

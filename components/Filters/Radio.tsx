@@ -23,8 +23,6 @@ const Radio = ({}) => {
 export default Radio;
 
 const radioStyles = (theme: MantineTheme) => ({
-    body: {},
-    labelWrapper: {},
     radio: {
         "&:checked": {
             background: "white",

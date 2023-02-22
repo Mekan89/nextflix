@@ -18,7 +18,7 @@ const FilmInfo = ({}) => {
                         Watch
                     </Button>
                     <Button leftIcon={<IconBookmark fill={dark_2} size={18} />} radius='xl' sx={button} px={20} py={12}>
-                        Watch later
+                        Watchlist
                     </Button>
                 </Group>
                 <Title order={3} mb={15}>
@@ -151,73 +151,3 @@ const button = (theme: MantineTheme): CSSObject => ({
         background: white_1,
     },
 });
-
-{
-    /* 
-                <Flex justify='space-between' w={170}>
-                    <Text opacity={0.5}>Country :</Text>
-                    <Text span c={dark_2}>
-                        USA
-                    </Text>
-                </Flex>
-                <Flex justify='space-between' w={170}>
-                    <Text opacity={0.5}>Country :</Text>
-                    <Text span c={dark_2}>
-                        USA
-                    </Text>
-                </Flex>
-                <Flex justify='space-between' w={170}>
-                    <Text opacity={0.5}>Country :</Text>
-                    <Text span c={dark_2}>
-                        USA
-                    </Text>
-                </Flex>
-                <Flex justify='space-between' w={170}>
-                    <Text opacity={0.5}>Country :</Text>
-                    <Text span c={dark_2}>
-                        USA
-                    </Text>
-                </Flex>
-                <Flex justify='space-between' w={170}>
-                    <Text opacity={0.5}>Country :</Text>
-                    <Text span c={dark_2}>
-                        USA
-                    </Text>
-                </Flex>
-                <Flex justify='space-between' w={170}>
-                    <Text opacity={0.5}>Country :</Text>
-                    <Text span c={dark_2}>
-                        USA
-                    </Text>
-                </Flex>
-                <Flex justify='space-between' w={170}>
-                    <Text opacity={0.5}>Country :</Text>
-                    <Text span c={dark_2}>
-                        USA
-                    </Text>
-                </Flex>
-                <Flex justify='space-between' w={170}>
-                    <Text opacity={0.5}>Country :</Text>
-                    <Text span c={dark_2}>
-                        USA
-                    </Text>
-                </Flex>
-                <Flex justify='space-between' w={170}>
-                    <Text opacity={0.5}>Country :</Text>
-                    <Text span c={dark_2}>
-                        USA
-                    </Text>
-                </Flex>
-                <Flex justify='space-between' w={170}>
-                    <Text opacity={0.5}>Country :</Text>
-                    <Text span c={dark_2}>
-                        USA
-                    </Text>
-                </Flex>
-                <Flex justify='space-between' w={170}>
-                    <Text opacity={0.5}>Country :</Text>
-                    <Text span c={dark_2}>
-                        USA
-                    </Text>
-                </Flex> */
-}

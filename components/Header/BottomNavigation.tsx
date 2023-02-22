@@ -3,18 +3,6 @@ import { Icon24Hours, IconHeart, IconHome, IconMasksTheater, IconMovie } from "@
 import { usePathname } from "next/navigation";
 import { useState } from "react";
 
-const bottomNavbar = (theme: MantineTheme, props?: any): CSSObject => ({
-    cursor: "pointer",
-    "&:hover": {
-        svg: {
-            stroke: "white",
-        },
-        ".mantine-Text-root": {
-            color: "white",
-        },
-    },
-});
-
 const items = [
     { title: "Home", route: "/", icon: <IconHome size={23} /> },
     { title: "Movies", route: "/movies", icon: <IconMasksTheater size={23} /> },
@@ -48,3 +36,15 @@ const BottomNavigation = ({}) => {
 };
 
 export default BottomNavigation;
+
+const bottomNavbar = (theme: MantineTheme, props?: any): CSSObject => ({
+    cursor: "pointer",
+    "&:hover": {
+        svg: {
+            stroke: "white",
+        },
+        ".mantine-Text-root": {
+            color: "white",
+        },
+    },
+});

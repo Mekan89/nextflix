@@ -3,6 +3,7 @@ import { useMediaQuery } from "@mantine/hooks";
 import { AppProps } from "next/app";
 
 import { Provider } from "jotai";
+import { SWRConfig } from "swr";
 import Head from "../components/Head";
 import Layout from "../components/Layout";
 import mantineTheme from "../theme";
@@ -15,17 +16,19 @@ export default function App(props: AppProps) {
     return (
         <>
             <Head />
-            <Provider>
-                <MantineProvider withGlobalStyles withNormalizeCSS theme={mantineTheme}>
-                    <Layout>
-                        <Component {...pageProps} />
-                    </Layout>
+            <SWRConfig>
+                <Provider>
+                    <MantineProvider withGlobalStyles withNormalizeCSS theme={mantineTheme}>
+                        <Layout>
+                            <Component {...pageProps} />
+                        </Layout>
 
-                    {/* <AppShell header={<Header />} footer={isMobile ? <BottomNavigation /> : <Footer />}>
+                        {/* <AppShell header={<Header />} footer={isMobile ? <BottomNavigation /> : <Footer />}>
                         <Component {...pageProps} />
                     </AppShell> */}
-                </MantineProvider>
-            </Provider>
+                    </MantineProvider>
+                </Provider>
+            </SWRConfig>
         </>
     );
 }

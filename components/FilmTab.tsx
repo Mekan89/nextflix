@@ -5,7 +5,6 @@ import { blue_1, white_1 } from "../theme/colors";
 
 const FilmTab = ({}) => {
     const [activeTab, setActiveTab] = useState<string | null>("description");
-
     const { classes, cx } = useStyles();
 
     return (

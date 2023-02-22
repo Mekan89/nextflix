@@ -1,9 +1,6 @@
 import { Box, Container } from "@mantine/core";
-import { Inter } from "@next/font/google";
 import Hero from "../components/Hero";
 import MovieList from "../components/MovieList";
-
-const inter = Inter({ subsets: ["latin"] });
 
 type Props = {
     children: React.ReactNode;
@@ -21,3 +18,5 @@ export default function Home() {
         </Box>
     );
 }
+
+// https://api.themoviedb.org/3/movie/550?api_key=5c103060aa43d7879861f936a199f784
