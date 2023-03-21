@@ -1,6 +1,6 @@
 import { Container, Text, Title } from "@mantine/core";
+import useFavorites from "hooks/useFavorites";
 import Content from "../components/Content";
-import useFavorites from "../hooks/useFavorites";
 
 export const Favourites = () => {
     const { favorites } = useFavorites();

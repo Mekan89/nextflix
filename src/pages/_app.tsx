@@ -2,9 +2,9 @@ import { MantineProvider, useMantineTheme } from "@mantine/core";
 import { useMediaQuery } from "@mantine/hooks";
 import { AppProps } from "next/app";
 
+import Head from "components/Head";
 import { Provider } from "jotai";
 import { SWRConfig } from "swr";
-import Head from "../components/Head";
 import Layout from "../components/Layout";
 import mantineTheme from "../theme";
 

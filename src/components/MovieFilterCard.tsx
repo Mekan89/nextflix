@@ -3,6 +3,7 @@ import { useMediaQuery } from "@mantine/hooks";
 import { IconBookmark } from "@tabler/icons-react";
 import Link from "next/link";
 import { gray_1, white_1 } from "../theme/colors";
+
 import Rating from "./Rating";
 
 const MovieFilterCard = ({}) => {
