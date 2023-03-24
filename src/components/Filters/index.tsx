@@ -1,6 +1,6 @@
-import { Box, Button } from "@mantine/core";
+import { Box, Button, CSSObject } from "@mantine/core";
 import React, { useEffect, useState } from "react";
-import { btnContained, btnOutlined } from "../../theme/styles";
+import { blue_1 } from "../../theme/colors";
 import FilterChoices from "./FilterChoices";
 import FilterItem from "./FilterItem";
 import Radio from "./Radio";
@@ -66,7 +66,7 @@ const Filters = ({}) => {
             <FilterItem name='Year of release'>
                 <Radio />
             </FilterItem>
-            <Button sx={btnContained} fullWidth mt={30} mb={15}>
+            <Button variant='filled' fullWidth mt={30} mb={15}>
                 Apply
             </Button>
             <Button sx={btnOutlined} fullWidth>
@@ -77,3 +77,15 @@ const Filters = ({}) => {
 };
 
 export default Filters;
+
+const btnOutlined: CSSObject = {
+    backgroundColor: "white",
+    color: blue_1,
+    borderColor: blue_1,
+    fontWeight: "bold",
+    transition: "0.5s",
+    ":hover": {
+        color: "white",
+        backgroundColor: blue_1,
+    },
+};

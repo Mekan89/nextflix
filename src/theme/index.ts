@@ -24,6 +24,7 @@ const theme: MantineThemeOverride = {
         },
     }),
     colorScheme: "light",
+    primaryShade: 9,
     fontFamily: fira_sans.style.fontFamily,
     primaryColor: "blue",
     components,

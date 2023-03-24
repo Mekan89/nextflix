@@ -36,24 +36,24 @@ export const navLink = (theme: MantineTheme): CSSObject => ({
     },
 });
 
-export const btnContained = (theme: MantineTheme): CSSObject => ({
-    backgroundColor: blue_1,
-    fontWeight: "bold",
-    "&:hover": {
-        color: theme.white,
-        backgroundColor: theme.fn.darken(blue_1, 0.2),
-    },
-});
+// export const btnContained = (theme: MantineTheme): CSSObject => ({
+//     backgroundColor: blue_1,
+//     fontWeight: "bold",
+//     "&:hover": {
+//         color: theme.white,
+//         backgroundColor: theme.fn.darken(blue_1, 0.2),
+//     },
+// });
 
-export const btnOutlined = (theme: MantineTheme): CSSObject => ({
-    backgroundColor: "white",
-    color: blue_1,
-    borderColor: blue_1,
-    fontWeight: "bold",
-    "&:hover": {
-        color: "white",
-        backgroundColor: blue_1,
+// export const btnOutlined = (theme: MantineTheme): CSSObject => ({
+//     backgroundColor: "white",
+//     color: blue_1,
+//     borderColor: blue_1,
+//     fontWeight: "bold",
+//     "&:hover": {
+//         color: "white",
+//         backgroundColor: blue_1,
 
-        // color: theme.fn.variant({ variant: "light", color: theme.primaryColor }).color,
-    },
-});
+//         // color: theme.fn.variant({ variant: "light", color: theme.primaryColor }).color,
+//     },
+// });

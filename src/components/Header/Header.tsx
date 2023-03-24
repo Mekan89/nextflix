@@ -1,4 +1,4 @@
-import { Container, Group, Header as MantineHeader, Text, useMantineTheme } from "@mantine/core";
+import { Container, Group, Header as MantineHeader, Text } from "@mantine/core";
 import { useMediaQuery } from "@mantine/hooks";
 import { useAtom } from "jotai";
 import Link from "next/link";
@@ -11,12 +11,11 @@ const Header = ({}) => {
     // const { classes } = useStyles();
     // const [scroll] = useWindowScroll();
     const [visible, setVisible] = useAtom(activeSearchAtom);
-
-    const theme = useMantineTheme();
-    const isTablet = useMediaQuery(`(max-width: ${theme.breakpoints.md}px)`);
-    const isMobile = useMediaQuery(`(max-width: ${theme.breakpoints.sm}px)`);
+    const isTablet = useMediaQuery("(max-width:64em)");
+    const isMobile = useMediaQuery("(max-width:48em)");
 
     // const visible = useAtomValue(activeSearchAtom);
+    console.log(isMobile);
 
     return (
         <MantineHeader height={70}>

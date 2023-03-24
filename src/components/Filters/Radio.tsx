@@ -13,8 +13,8 @@ const Radio = ({}) => {
     const isMobile = useMediaQuery(`(max-width: ${theme.breakpoints.sm}px)`);
 
     return (
-        <MantineRadio.Group value={value} onChange={setValue} orientation='horizontal' spacing={40}>
-            <MantineRadio value='new' label='New to Old' styles={radioStyles} />
+        <MantineRadio.Group value={value} onChange={setValue}>
+            <MantineRadio value='new' label='New to Old' styles={radioStyles} mb={10} />
             <MantineRadio value='old' label='Old to New' styles={radioStyles} />
         </MantineRadio.Group>
     );

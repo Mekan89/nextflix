@@ -1,57 +1,59 @@
 import { Box, createStyles, Paper, ScrollArea, Tabs } from "@mantine/core";
-import { useState } from "react";
+import { useRouter } from "next/router";
+import { Dispatch, SetStateAction } from "react";
 import { dark_1, dark_2, gray_3 } from "../../../theme/colors";
+import { IMovieCard } from "../../../types";
 import SearchItem from "./SearchItem";
 
-const SearchList = ({}) => {
-    const [activeTab, setActiveTab] = useState<string | null>("films");
+type Props = {
+    setActiveTab: Dispatch<SetStateAction<string>>;
+    activeTab: string;
+    isLoading: boolean;
+    movies: IMovieCard[];
+};
+
+// const SearchList = ({ activeTab, setActiveTab, isLoading, movies }: Props) => {
+const SearchList = ({ activeTab, setActiveTab, isLoading, movies }: Props) => {
+    const router = useRouter();
+    const types = ["movie", "tv", "cartoons"];
     const { classes, cx } = useStyles();
 
     return (
         <Paper bg='#333' className={classes.wrapper} maw={{ base: "100%", sm: 400 }}>
             <Tabs
-                keepMounted={false}
+                // keepMounted={false}
                 defaultValue='films'
                 variant='outline'
-                classNames={{ root: classes.root, tabsList: classes.tabsList, tab: classes.tab, panel: classes.panel }}
+                classNames={{ tabsList: classes.tabsList, tab: classes.tab }}
                 value={activeTab}
-                onTabChange={setActiveTab}>
+                onTabChange={() => setActiveTab}>
                 <Tabs.List grow>
-                    <Tabs.Tab value='films'> Films</Tabs.Tab>
-                    <Tabs.Tab value='series'>Series</Tabs.Tab>
-                    <Tabs.Tab value='cartoons'> Cartoons</Tabs.Tab>
+                    {types.map(el => (
+                        <Tabs.Tab key={el} value={el} onClick={() => setActiveTab(el)}>
+                            {el}
+                        </Tabs.Tab>
+                    ))}
                 </Tabs.List>
 
-                <Tabs.Panel value='films'>
-                    <ScrollArea.Autosize maxHeight='60vh' mih={300} type='always' offsetScrollbars>
-                        <SearchItem />
-                        <SearchItem />
-                        <SearchItem />
-                        <SearchItem />
-                        <SearchItem />
-                        <SearchItem />
-                        <SearchItem />
-                        <SearchItem />
-                        <SearchItem />
-                        <SearchItem />
-                        <SearchItem />
-                        <SearchItem />
-                        <SearchItem />
-                        <SearchItem />
-                    </ScrollArea.Autosize>
-                </Tabs.Panel>
-                <Tabs.Panel value='series'>
-                    <SearchItem />
-                    <SearchItem />
-                    <SearchItem />
-                </Tabs.Panel>
-                <Tabs.Panel value='cartoons'>
-                    <SearchItem />
-                    <SearchItem />
-                    <SearchItem />
-                </Tabs.Panel>
+                {types.map(el => (
+                    <Tabs.Panel key={el} value={el}>
+                        <ScrollArea.Autosize mah='60vh' mih={300} type='always' offsetScrollbars>
+                            {movies?.map((el: IMovieCard) => (
+                                <SearchItem {...el} key={el.id} />
+                            ))}
+                        </ScrollArea.Autosize>
+                    </Tabs.Panel>
+                ))}
 
-                <Box py={10} px={15} fz={14} fw='bold' c='gray.3' bg={dark_2} sx={{ ":hover": { backgroundColor: "black" } }}>
+                <Box
+                    py={10}
+                    px={15}
+                    fz={14}
+                    fw='bold'
+                    c='gray.3'
+                    bg={dark_2}
+                    onClick={() => router.push(activeTab)}
+                    sx={{ cursor: "pointer", ":hover": { backgroundColor: "black" } }}>
                     Show All
                 </Box>
             </Tabs>
@@ -68,7 +70,6 @@ const useStyles = createStyles(theme => ({
         top: 45,
         overflow: "hidden",
     },
-    root: {},
     tabsList: {
         padding: 15,
         borderBottomColor: gray_3,
@@ -91,13 +92,5 @@ const useStyles = createStyles(theme => ({
         "&:hover:not([data-active])": {
             backgroundColor: dark_2,
         },
-    },
-    panel: {
-        // height: 300,
-        // maxHeight: "500px",
-        // height: "max(fit-content, 500px)",
-        // overflowY: "scroll",
-        // scrollbarWidth: 2,
-        // scrollbarColor: dark_2,
     },
 }));

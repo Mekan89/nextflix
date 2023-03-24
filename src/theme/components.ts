@@ -1,6 +1,8 @@
 import { MantineThemeComponents } from "@mantine/styles/lib/theme/types/MantineTheme";
 import { blue_1, dark_2 } from "./colors";
 
+console.log(dark_2);
+
 export const components: MantineThemeComponents = {
     AppShell: {
         styles: {
@@ -58,15 +60,41 @@ export const components: MantineThemeComponents = {
         defaultProps: {
             size: "md",
         },
-        styles: {
-            // "@media (max-width: 400px)": {
-            root: {
-                transition: "background-color 300ms ease-in-out",
-                "&:hover": {},
-            },
-            // },
-        },
+
+        // styles: theme => ({
+        //     outline: {
+        //         root: {
+        //             backgroundColor: theme.colors.red[8],
+        //         }
+        //     },
+        // }),
     },
+    //     filled: theme => ({
+    //         root: {
+    //             // backgroundColor: blue_1,
+    //             fontWeight: "bold",
+    //             ...theme.fn.hover({ backgroundColor: "red" }),
+    //             // "&:hover": {
+    //             //     color: "white",
+    //             //     backgroundColor: "red",
+    //             // },
+    //         },
+    //     }),
+    // },
+    // styles: {
+    //     // "@media (max-width: 400px)": {
+    //     root: {
+    //         fontWeight: "bold",
+    //         transition: "background-color 300ms ease-in-out",
+    //         borderColor: blue_1,
+    //         // backgroundColor: blue_1,
+    //         "&:hover": {
+    //             backgroundColor: blue_2,
+    //         },
+    //     },
+    // },
+    // },
+    // },
 
     // Input: {
     //     styles: {

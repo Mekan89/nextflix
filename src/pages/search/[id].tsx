@@ -1,17 +1,24 @@
 import { Button, Container, Grid, Text, Title, useMantineTheme } from "@mantine/core";
 import { useMediaQuery } from "@mantine/hooks";
+
 import { IconAdjustments } from "@tabler/icons-react";
 import { useSetAtom } from "jotai";
-import { filterAtom } from "../atoms";
-import Content from "../components/Content";
-import Filters from "../components/Filters";
-import Modal from "../components/Modal";
-import { btnOutlined } from "../theme/styles";
+import { useRouter } from "next/router";
+import { filterAtom } from "../../atoms";
+import Content from "../../components/Content";
+import Filters from "../../components/Filters";
+import Modal from "../../components/Modal";
+// import requests from "../../services/tmdbWrapper";
+// import { fetcher } from "../../utils";
 
-const Movies = ({}) => {
+const Movie = ({}) => {
     const theme = useMantineTheme();
-    const isTablet = useMediaQuery(`(max-width: ${theme.breakpoints.md}px)`);
+    const isTablet = useMediaQuery(`(max-width: ${theme.breakpoints.md}em)`);
     const setFilterView = useSetAtom(filterAtom);
+    const router = useRouter();
+    const path = router;
+    // const url = requests[path];
+    // const { data, error, isLoading } = useSWR(url, fetcher);
 
     return (
         <Container px={{ base: 10, sm: 40 }} pt={50} pb={120} bg='white'>
@@ -19,7 +26,7 @@ const Movies = ({}) => {
             <Text my={20}>A selection of movies from all over the world</Text>
             {isTablet && (
                 <>
-                    <Button onClick={() => setFilterView(true)} sx={btnOutlined} leftIcon={<IconAdjustments size={20} />}>
+                    <Button variant='filled' onClick={() => setFilterView(true)} leftIcon={<IconAdjustments size={20} />}>
                         Filter
                     </Button>
                     <Modal>
@@ -43,4 +50,4 @@ const Movies = ({}) => {
     );
 };
 
-export default Movies;
+export default Movie;

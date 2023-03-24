@@ -1,5 +1,9 @@
-import useSWR from "swr";
-import { fetcher } from "../../utils";
+import { Button, Grid, Group, Loader, Stack, Text } from "@mantine/core";
+import { useRouter } from "next/router";
+import useFetch from "../hooks/useFetch";
+// import useSWR from "swr";
+import { IMovieCard } from "../types";
+import MovieCard from "./MovieCard";
 
 // page:1,
 // total_pages: 1000,
@@ -28,17 +32,52 @@ export type Props = {
 };
 
 const MovieList = ({ title, url }: Props) => {
-    const { data, error, isLoading } = useSWR(url, fetcher);
+    // const { data, error, isLoading } = useSWR(url, fetcher);
+    const { movies, mutate, size, setSize, isValidating, isLoading } = useFetch(url);
+    const router = useRouter();
 
-    if (error) return <div>failed to load</div>;
-    if (isLoading) return <div>loading...</div>;
+    console.log(movies);
+
+    // const movies = data
+    //     ?.map(page =>
+    //         page.results.map((d: IMovie) => {
+    //             return {
+    //                 id: d.id,
+    //                 name: d.title || d.name,
+    //                 year: d.release_date || d.first_air_date,
+    //                 url: d.backdrop_path,
+    //                 vote: d.vote_average,
+    //                 type: d.media_type,
+    //             };
+    //         })
+    //     )
+    //     .flat();
+
+    // console.log(movies);
+
+    if (isLoading) return <Loader />;
     // const { title, media_type, backdrop_path, genre_ids, id, original_language, original_title, overview, popularity, poster_path, release_date, video, vote_average } = props;
     // console.log(data);
 
-    return;
+    return (
+        <Stack py={60}>
+            <Group position='apart' mb={40}>
+                <Text fz={30} fw={700}>
+                    New {title}
+                </Text>
+                <Button onClick={() => router.push(`/${title}`)}>Show All</Button>
+            </Group>
+            <Grid gutter='lg'>
+                {movies?.map((el: IMovieCard) => (
+                    <MovieCard key={el.id} {...el} />
+                ))}
+            </Grid>
 
-    {
-    }
+            <Button w={200} mx='auto' onClick={() => setSize(size + 1)}>
+                Load More
+            </Button>
+        </Stack>
+    );
 };
 
 export default MovieList;

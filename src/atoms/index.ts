@@ -1,7 +1,7 @@
 import { atom } from "jotai";
 
 export const filterAtom = atom(false);
-export const queryAtom = atom("");
+export const queryType = atom("movie");
 export const activeSearchAtom = atom(false);
 
 export const filterState = atom({

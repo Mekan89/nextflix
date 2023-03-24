@@ -1,52 +1,60 @@
-import { Badge, Col, createStyles, Group, Image, Text } from "@mantine/core";
+import { Badge, Col, createStyles, Group, Image, Text, useMantineTheme } from "@mantine/core";
+import { useMediaQuery } from "@mantine/hooks";
+
 import Link from "next/link";
-import { TMDB_IMAGE_ENDPOINT } from "../services/requests";
-import { IMovie } from "../types";
 import Rating from "./Rating";
 
-// interface Props {
-//     backdrop_path: string;
-//     genre_ids: number[];
-//     id: number;
-//     media_type: string;
-//     original_language: string;
-//     original_title: string;
-//     overview: string;
-//     popularity: number;
-//     poster_path: string;
-//     release_date: string;
-//     title: string;
-//     video: boolean;
-//     vote_average: number;
-//     vote_count: number;
-// }
+interface Props {
+    id: number;
+    name: string;
+    year: string;
+    url: string;
+    vote: number;
+    type: string;
+}
 
-const MovieCard = (props: IMovie) => {
+const MovieCard = (props: Props) => {
     const { classes } = useStyles();
+    const theme = useMantineTheme();
+    const isTablet = useMediaQuery("(max-width: 700px)");
 
-    const { backdrop_path, genre_ids, id, media_type, original_language, original_title, overview, popularity, poster_path, release_date, title, video, vote_average, vote_count } =
-        props;
-
-    console.log(id);
+    const { id, name, year, url, vote, type } = props;
 
     return (
-        <Link href={`/film/${id}`} style={{ display: "block" }}>
-            <Col span={6} xs={4} sm={3} md={2.4} className={classes.wrapper}>
-                <Image src={`${TMDB_IMAGE_ENDPOINT}${backdrop_path}`} alt='Norway' radius='md' />
-                <Rating className={classes.badge} rating={vote_average} />
+        <Col span={6} xs={4} sm={3} md={2.4} className={classes.wrapper}>
+            <Link href={`/film/${id}`}>
+                <Image src={url} alt='Norway' radius='md' fit='cover' height={isTablet ? 280 : 350} />
+                <Rating className={classes.badge} rating={vote} />
                 <Text weight={700} truncate mt='sm'>
-                    {original_title}
+                    {name}
                 </Text>
                 <Group mt='xs'>
                     <Text fz='sm' fw={500} c='dimmed' mt={-2}>
-                        {release_date}
+                        {year?.substring(0, 4)}
                     </Text>
                     <Badge color='pink' variant='light'>
-                        {media_type}
+                        {type}
                     </Badge>
                 </Group>
-            </Col>
-        </Link>
+            </Link>
+        </Col>
+        // <Col span={6} xs={4} sm={3} md={2.4} className={classes.wrapper}>
+        //     <Link href={`/film/${id}`}>
+        //         <Image src={`${TMDB_IMAGE_ENDPOINT}${backdrop_path}`} alt='Norway' radius='md' fit='cover' height={isTablet ? 280 : 350} />
+        //         <Rating className={classes.badge} rating={+vote_average.toFixed(1)} />
+        //         <Text weight={700} truncate mt='sm'>
+        //             {original_title}
+        //         </Text>
+        //         <Group mt='xs'>
+        //             <Text fz='sm' fw={500} c='dimmed' mt={-2}>
+        //                 {release_date?.substring(0, 4)}
+        //             </Text>
+        //             <Badge color='pink' variant='light'>
+        //                 {media_type}
+        //             </Badge>
+        //         </Group>
+        //     </Link>
+        // </Col>
     );
 };
 

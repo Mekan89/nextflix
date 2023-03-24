@@ -1,7 +1,6 @@
 import { Box, Button, Container, createStyles, Stack, Text, Title } from "@mantine/core";
 import { IconArrowRight } from "@tabler/icons-react";
 import Link from "next/link";
-import { btnContained } from "../theme/styles";
 
 const Hero = ({}) => {
     const { classes } = useStyles();
@@ -13,7 +12,7 @@ const Hero = ({}) => {
                     <Title order={1}>Thor: Love and Thunder</Title>
                     {/* {movie? movie.overview : ""} */}
                     <Text>Джейн Фостер берет на себя обязанности Бога-громовержца и становится обладательницей молота Мьёльнира.</Text>
-                    <Button component={Link} href={"film/1282688"} rightIcon={<IconArrowRight size={19} />} sx={btnContained}>
+                    <Button component={Link} href={"film/1282688"} rightIcon={<IconArrowRight size={19} />}>
                         More
                     </Button>
                 </Stack>
