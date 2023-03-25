@@ -5,10 +5,8 @@ import { IMovieCard } from "../../../types";
 import Rating from "../../Rating";
 
 const SearchItem = (props: IMovieCard) => {
-    const { classes, cx } = useStyles();
+    const { classes } = useStyles();
     const { id, name, url, vote, year } = props;
-
-    console.log(url);
 
     return (
         <Box href={`film/${id}`} component={Link} className={classes.wrapper}>

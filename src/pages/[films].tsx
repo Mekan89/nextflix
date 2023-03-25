@@ -1,9 +1,9 @@
-import { Button, Container, Grid, Text, Title, useMantineTheme } from "@mantine/core";
+import { Button, Container, Grid, LoadingOverlay, Text, Title } from "@mantine/core";
 import { useMediaQuery } from "@mantine/hooks";
 import { IconAdjustments } from "@tabler/icons-react";
-import { useSetAtom } from "jotai";
+import { useAtomValue, useSetAtom } from "jotai";
 import { useRouter } from "next/router";
-import { filterAtom } from "../atoms";
+import { filterAtom, query, queryType } from "../atoms";
 import Content from "../components/Content";
 import Filters from "../components/Filters";
 import Modal from "../components/Modal";
@@ -11,15 +11,17 @@ import useFetch from "../hooks/useFetch";
 import API from "../services/tmdbWrapper";
 
 const Movies = () => {
-    const theme = useMantineTheme();
-    const isTablet = useMediaQuery(`(max-width: ${theme.breakpoints.md}em)`);
+    const isTablet = useMediaQuery("(max-width:64em)");
     const setFilterView = useSetAtom(filterAtom);
     const router = useRouter();
-    const path = router.asPath;
-    let url = API[path];
-    const { movies, mutate, size, setSize, isValidating, isLoading } = useFetch(url);
+    const keyword = useAtomValue(query);
+    const type = useAtomValue(queryType);
+    // const { films, name } = router.query;
 
-    console.log(path);
+    //@ts-ignore
+    const { movies, mutate, size, setSize, isValidating, isLoading } = useFetch(API.getMovieList(keyword, type));
+    console.log(movies);
+    console.log(router);
 
     return (
         <Container px={{ base: 10, sm: 40 }} pt={50} pb={120} bg='white'>
@@ -43,8 +45,7 @@ const Movies = () => {
                     </Grid.Col>
                 )}
                 <Grid.Col span='auto' ml={{ base: 0, md: 60 }}>
-                    {/* <Content data={data} isLoading={isLoading} isFetching={isFetching} /> */}
-                    <Content />
+                    {!movies ? <LoadingOverlay visible /> : <Content movies={movies} />}
                 </Grid.Col>
             </Grid>
         </Container>

@@ -1,6 +1,8 @@
-import { Box, createStyles, Paper, ScrollArea, Tabs } from "@mantine/core";
+import { Box, Center, createStyles, Loader, Paper, ScrollArea, Tabs } from "@mantine/core";
+import { useAtom } from "jotai";
 import { useRouter } from "next/router";
 import { Dispatch, SetStateAction } from "react";
+import { queryType } from "../../../atoms";
 import { dark_1, dark_2, gray_3 } from "../../../theme/colors";
 import { IMovieCard } from "../../../types";
 import SearchItem from "./SearchItem";
@@ -10,26 +12,35 @@ type Props = {
     activeTab: string;
     isLoading: boolean;
     movies: IMovieCard[];
+    value: string;
+    setOpened: () => void;
 };
 
 // const SearchList = ({ activeTab, setActiveTab, isLoading, movies }: Props) => {
-const SearchList = ({ activeTab, setActiveTab, isLoading, movies }: Props) => {
+const SearchList = ({ movies, setOpened }: Props) => {
     const router = useRouter();
     const types = ["movie", "tv", "cartoons"];
     const { classes, cx } = useStyles();
+
+    const [type, setType] = useAtom(queryType);
+
+    const handleShow = () => {
+        router.push(type);
+        setOpened();
+    };
 
     return (
         <Paper bg='#333' className={classes.wrapper} maw={{ base: "100%", sm: 400 }}>
             <Tabs
                 // keepMounted={false}
-                defaultValue='films'
+                defaultValue='movie'
                 variant='outline'
                 classNames={{ tabsList: classes.tabsList, tab: classes.tab }}
-                value={activeTab}
-                onTabChange={() => setActiveTab}>
+                value={type}
+                onTabChange={() => setType}>
                 <Tabs.List grow>
                     {types.map(el => (
-                        <Tabs.Tab key={el} value={el} onClick={() => setActiveTab(el)}>
+                        <Tabs.Tab key={el} value={el} onClick={() => setType(el)}>
                             {el}
                         </Tabs.Tab>
                     ))}
@@ -37,23 +48,19 @@ const SearchList = ({ activeTab, setActiveTab, isLoading, movies }: Props) => {
 
                 {types.map(el => (
                     <Tabs.Panel key={el} value={el}>
-                        <ScrollArea.Autosize mah='60vh' mih={300} type='always' offsetScrollbars>
-                            {movies?.map((el: IMovieCard) => (
-                                <SearchItem {...el} key={el.id} />
-                            ))}
+                        <ScrollArea.Autosize mah='60vh' mih={200} type='always' offsetScrollbars>
+                            {!movies ? (
+                                <Center mt={20}>
+                                    <Loader size='lg' />
+                                </Center>
+                            ) : (
+                                movies?.map((el: IMovieCard) => <SearchItem {...el} key={el.id} />)
+                            )}
                         </ScrollArea.Autosize>
                     </Tabs.Panel>
                 ))}
 
-                <Box
-                    py={10}
-                    px={15}
-                    fz={14}
-                    fw='bold'
-                    c='gray.3'
-                    bg={dark_2}
-                    onClick={() => router.push(activeTab)}
-                    sx={{ cursor: "pointer", ":hover": { backgroundColor: "black" } }}>
+                <Box py={10} px={15} fz={14} fw='bold' c='gray.3' bg={dark_2} onClick={handleShow} sx={{ cursor: "pointer", ":hover": { backgroundColor: "black" } }}>
                     Show All
                 </Box>
             </Tabs>

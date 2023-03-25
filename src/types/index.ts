@@ -42,6 +42,7 @@ export interface IMovie {
     video: boolean;
     vote_average: number;
     vote_count: number;
+    description: string;
 }
 
 export interface IMovieCard {
@@ -51,6 +52,7 @@ export interface IMovieCard {
     url: string;
     vote: number;
     type: string;
+    description: string;
 }
 
 // export interface IMovie {

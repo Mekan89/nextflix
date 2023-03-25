@@ -1,37 +1,41 @@
-import { Button, createStyles, Divider, Group, Image, Stack, Text, Title, useMantineTheme } from "@mantine/core";
+import { Button, createStyles, Divider, Group, Image, Stack, Text, Title } from "@mantine/core";
 import { useMediaQuery } from "@mantine/hooks";
 import { IconBookmark } from "@tabler/icons-react";
 import Link from "next/link";
 import { gray_1, white_1 } from "../theme/colors";
+import { IMovieCard } from "../types";
 
 import Rating from "./Rating";
 
-const MovieFilterCard = ({}) => {
-    const { classes, cx } = useStyles();
-    const theme = useMantineTheme();
-    const isMobile = useMediaQuery(`(max-width: ${theme.breakpoints.sm}px)`);
+type Props = {
+    movie: IMovieCard;
+};
+
+const MovieFilterCard = ({ movie }: Props) => {
+    const { classes } = useStyles();
+    const isMobile = useMediaQuery("max-width: 48em");
+    const { id, name, year, url, description, vote, type } = movie;
 
     return (
         <>
             <Divider color={white_1} display={{ base: "none", md: "block" }} />
-            <Link href='#' className={classes.wrapper}>
+            <Link href={"film/" + id} className={classes.wrapper}>
                 <Group noWrap px={{ base: 0, md: 25 }} py={25}>
-                    <Image src='/black.jpg' alt='Norway' radius='md' width={70} height={100} />
-                    <Stack maw={430} spacing={4}>
+                    <Image src={url} alt={name} radius='md' width={70} height={100} />
+                    <Stack maw={430} spacing={4} mb='auto'>
                         <Title order={4} lineClamp={1}>
-                            BTS Permission:
+                            {name}
                         </Title>
                         <Text fz={{ base: 14, sm: 16 }} span>
-                            2022, 195 min.
+                            {year?.substring(0, 4)}
                         </Text>
                         <Text lineClamp={2} fz={14} c='dimmed'>
-                            Появилось новое зло, и только Скотт Макколл может собрать новых союзников и старых друзей, чтобы дать ему отпор. Появилось новое зло, и только Скотт
-                            Макколл может собрать новых союзников и старых друзей, чтобы дать ему отпор.
+                            {description}
                         </Text>
                     </Stack>
 
                     <Group position={isMobile ? "center" : "right"} ml='auto'>
-                        <Rating className={classes.rating} rating={5.9} />
+                        <Rating className={classes.rating} rating={vote} />
                         <Button leftIcon={<IconBookmark fill={gray_1} size={16} />} className={classes.button}>
                             Watchlist
                         </Button>

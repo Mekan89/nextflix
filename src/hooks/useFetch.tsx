@@ -11,11 +11,9 @@ const useFetch = (url: string) => {
         revalidateOnFocus: false,
     });
 
-    console.log(data);
-
     const movies = data
-        ?.map(page =>
-            page?.results?.map((d: IMovie) => {
+        ?.map(item =>
+            item?.results?.map((d: IMovie) => {
                 return {
                     id: d.id,
                     name: d.title || d.name,
@@ -23,6 +21,7 @@ const useFetch = (url: string) => {
                     url: TMDB_IMAGE_ENDPOINT + d.backdrop_path,
                     vote: d.vote_average.toFixed(1),
                     type: d.media_type,
+                    description: d.overview,
                 };
             })
         )

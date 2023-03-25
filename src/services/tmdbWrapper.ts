@@ -28,7 +28,7 @@ export const fetcher = (args: string) => fetch(args).then(res => res.json());
 const API = {
     all: `${TMDB_ENDPOINT}/trending/all/week?api_key=${process.env.NEXT_PUBLIC_API_KEY}`,
     movies: `${TMDB_ENDPOINT}/trending/movie/week?api_key=${process.env.NEXT_PUBLIC_API_KEY}`,
-    series: `${TMDB_ENDPOINT}/trending/tv/week?api_key=${process.env.NEXT_PUBLIC_API_KEY}`,
+    tv: `${TMDB_ENDPOINT}/trending/tv/week?api_key=${process.env.NEXT_PUBLIC_API_KEY}`,
     topRated: `${TMDB_ENDPOINT}/movie/top_rated?api_key=${process.env.NEXT_PUBLIC_API_KEY}&language=en-US&page=1`,
     netflixOriginals: `${TMDB_ENDPOINT}/discover/tv?api_key=${process.env.NEXT_PUBLIC_API_KEY}&page=1&timezone=%20Europe%2FIstanbul&with_networks=213`,
     allGenre: `${TMDB_ENDPOINT}/genre/movie/list?api_key=${process.env.NEXT_PUBLIC_API_KEY}`,
@@ -36,8 +36,7 @@ const API = {
     animation: `${TMDB_ENDPOINT}/discover/movie?api_key=${process.env.NEXT_PUBLIC_API_KEY}&with_genres=16`,
     fantasy: `${TMDB_ENDPOINT}/discover/movie?api_key=${process.env.NEXT_PUBLIC_API_KEY}&with_genres=14`,
     romance: `${TMDB_ENDPOINT}/discover/movie?api_key=${process.env.NEXT_PUBLIC_API_KEY}&with_genres=10749`,
-    search: `${TMDB_ENDPOINT}/search/movie?api_key=${process.env.NEXT_PUBLIC_API_KEY}&with_genres=10749`,
-    getMovieList: (query: string, type = "movies") => `${TMDB_ENDPOINT}/search/${type}?api_key=${process.env.NEXT_PUBLIC_API_KEY}&query=${query}`,
+    getMovieList: (query: string, type = "movie") => `${TMDB_ENDPOINT}/search/${type}?api_key=${process.env.NEXT_PUBLIC_API_KEY}&query=${query}`,
 };
 
 export const genres = {
@@ -70,8 +69,6 @@ export default API;
 export function searchMovie(searchKey = "", type = "movie") {
     return `${TMDB_ENDPOINT}/search/${type}?api_key=${process.env.NEXT_PUBLIC_API_KEY}&query=${searchKey}`;
 }
-
-console.log(searchMovie("dd"));
 
 export function searchMovieId(id = null, type = "movie", seasonId = null) {
     const searchUrl = !seasonId ? `${TMDB_ENDPOINT}/${type}/${id}` : `${TMDB_ENDPOINT}/${type}/${id}/season/${seasonId}`;

@@ -2,12 +2,14 @@ import { Button, Container, Grid, Text, Title, useMantineTheme } from "@mantine/
 import { useMediaQuery } from "@mantine/hooks";
 
 import { IconAdjustments } from "@tabler/icons-react";
-import { useSetAtom } from "jotai";
+import { useAtomValue, useSetAtom } from "jotai";
 import { useRouter } from "next/router";
-import { filterAtom } from "../../atoms";
+import { filterAtom, query, queryType } from "../../atoms";
 import Content from "../../components/Content";
 import Filters from "../../components/Filters";
 import Modal from "../../components/Modal";
+import useFetch from "../../hooks/useFetch";
+import API from "../../services/tmdbWrapper";
 // import requests from "../../services/tmdbWrapper";
 // import { fetcher } from "../../utils";
 
@@ -16,7 +18,11 @@ const Movie = ({}) => {
     const isTablet = useMediaQuery(`(max-width: ${theme.breakpoints.md}em)`);
     const setFilterView = useSetAtom(filterAtom);
     const router = useRouter();
-    const path = router;
+    const keyword = useAtomValue<string>(query);
+    const type = useAtomValue(queryType);
+
+    const { movies, mutate, size, setSize, isValidating, isLoading } = useFetch(API.getMovieList(keyword, API[type]));
+
     // const url = requests[path];
     // const { data, error, isLoading } = useSWR(url, fetcher);
 
@@ -43,7 +49,7 @@ const Movie = ({}) => {
                 )}
                 <Grid.Col span='auto' ml={{ base: 0, md: 60 }}>
                     {/* <Content data={data} isLoading={isLoading} isFetching={isFetching} /> */}
-                    <Content />
+                    {movies && <Content movies={movies} />}
                 </Grid.Col>
             </Grid>
         </Container>

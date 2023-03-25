@@ -9,7 +9,7 @@ import { isActive } from "../../theme/styles";
 const items = [
     { title: "Home", route: "/", icon: <IconHome size={22} /> },
     { title: "Movies", route: "/movies", icon: <IconMasksTheater size={22} /> },
-    { title: "Series", route: "/series", icon: <Icon24Hours size={22} /> },
+    { title: "TV Shows", route: "/tv", icon: <Icon24Hours size={22} /> },
     { title: "Cartoons", route: "/cartoons", icon: <IconMovie size={22} /> },
     { title: "Favorites", route: "/favorites", icon: <IconHeart size={22} /> },
 ];

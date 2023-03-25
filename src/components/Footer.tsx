@@ -15,8 +15,8 @@ const Footer = ({}) => {
                         <Text component={Link} href='/movies' sx={navLink}>
                             Movies
                         </Text>
-                        <Text component={Link} href='/series' sx={navLink}>
-                            Series
+                        <Text component={Link} href='/tv' sx={navLink}>
+                            TV Shows
                         </Text>
                         <Text component={Link} href='/cartoons' sx={navLink}>
                             Cartoons

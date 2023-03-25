@@ -1,4 +1,4 @@
-import { Badge, Col, createStyles, Group, Image, Text, useMantineTheme } from "@mantine/core";
+import { Badge, Col, createStyles, Group, Image, Text } from "@mantine/core";
 import { useMediaQuery } from "@mantine/hooks";
 
 import Link from "next/link";
@@ -15,8 +15,7 @@ interface Props {
 
 const MovieCard = (props: Props) => {
     const { classes } = useStyles();
-    const theme = useMantineTheme();
-    const isTablet = useMediaQuery("(max-width: 700px)");
+    const isTablet = useMediaQuery("(max-width: 64em)");
 
     const { id, name, year, url, vote, type } = props;
 

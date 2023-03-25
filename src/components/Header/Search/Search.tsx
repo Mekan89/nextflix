@@ -1,9 +1,10 @@
 import { ActionIcon, Box, createStyles, Group, Input, Stack } from "@mantine/core";
-import { useClickOutside, useDebouncedValue, useInputState, useMediaQuery } from "@mantine/hooks";
+import { useClickOutside, useDebouncedValue, useMediaQuery } from "@mantine/hooks";
 import { IconChevronLeft, IconSearch, IconX } from "@tabler/icons-react";
 import { useAtom } from "jotai";
+import { useRouter } from "next/router";
 import { useState } from "react";
-import { activeSearchAtom } from "../../../atoms";
+import { activeSearchAtom, query, queryType } from "../../../atoms";
 import useFetch from "../../../hooks/useFetch";
 import API from "../../../services/tmdbWrapper";
 import { blue_1, gray_2 } from "../../../theme/colors";
@@ -57,20 +58,20 @@ const Search = ({}) => {
     const [visible, setVisible] = useAtom(activeSearchAtom);
     const [opened, setOpened] = useState(false);
     const ref = useClickOutside(() => setOpened(false));
+    const router = useRouter();
     const isMobile = useMediaQuery("(max-width:48em)");
-    const [activeTab, setActiveTab] = useState<string>("movie");
-    const [value, setValue] = useInputState("");
-    const debouncedQuery = useDebouncedValue(value.trim(), 500);
-    const { movies, mutate, size, setSize, isValidating, isLoading } = useFetch(API.getMovieList(debouncedQuery[0], activeTab));
-
-    // const [query, setQuery] = useAtom(queryAtom);
+    const [keyword, setKeyword] = useAtom(query);
+    const [type, setType] = useAtom(queryType);
+    const debouncedQuery = useDebouncedValue(keyword, 500);
+    const { movies, mutate, size, setSize, isValidating, isLoading } = useFetch(API.getMovieList(debouncedQuery[0], type));
+    const showOnly = keyword.trim() && opened && router.pathname == "/";
 
     console.log(ref);
 
     const handleVisibility = () => {
         if (isMobile) {
             setVisible(!visible);
-            setValue("");
+            setKeyword("");
         }
     };
 
@@ -96,15 +97,12 @@ const Search = ({}) => {
                             rightSection: classes.rightSection,
                         }}
                         placeholder='Search'
-                        value={value}
-                        onChange={setValue}
+                        value={keyword}
+                        onChange={e => setKeyword(e.target.value)}
                         onClick={() => setOpened(() => true)}
                         autoFocus={visible}
                         maxLength={100}
-                        rightSection={value.trim() && <IconX size={18} color='white' onClick={() => setValue("")} />}
-
-                        // onChange={e => setQuery(e.target.value)}
-                        // onKeyPress={onKeyPress}
+                        rightSection={keyword.trim() && <IconX size={18} color='white' onClick={() => setKeyword("")} />}
                     />
                 )}
 
@@ -114,7 +112,8 @@ const Search = ({}) => {
                     </ActionIcon>
                 )}
             </Group>
-            <Box ref={ref}>{opened && movies && <SearchList movies={movies} isLoading={isLoading} activeTab={activeTab} setActiveTab={setActiveTab} />}</Box>
+            {/* @ts-ignore */}
+            <Box ref={ref}>{showOnly && <SearchList movies={movies} isLoading={isLoading} setOpened={() => setOpened(false)} />}</Box>
         </Stack>
     );
 };

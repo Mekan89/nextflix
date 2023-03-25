@@ -1,4 +1,4 @@
-import { Button, Grid, Group, Loader, Stack, Text } from "@mantine/core";
+import { Button, Grid, Group, LoadingOverlay, Stack, Text } from "@mantine/core";
 import { useRouter } from "next/router";
 import useFetch from "../hooks/useFetch";
 // import useSWR from "swr";
@@ -55,7 +55,6 @@ const MovieList = ({ title, url }: Props) => {
 
     // console.log(movies);
 
-    if (isLoading) return <Loader />;
     // const { title, media_type, backdrop_path, genre_ids, id, original_language, original_title, overview, popularity, poster_path, release_date, video, vote_average } = props;
     // console.log(data);
 
@@ -67,11 +66,7 @@ const MovieList = ({ title, url }: Props) => {
                 </Text>
                 <Button onClick={() => router.push(`/${title}`)}>Show All</Button>
             </Group>
-            <Grid gutter='lg'>
-                {movies?.map((el: IMovieCard) => (
-                    <MovieCard key={el.id} {...el} />
-                ))}
-            </Grid>
+            <Grid gutter='lg'>{!movies ? <LoadingOverlay visible /> : movies?.map((el: IMovieCard) => <MovieCard key={el.id} {...el} />)}</Grid>
 
             <Button w={200} mx='auto' onClick={() => setSize(size + 1)}>
                 Load More

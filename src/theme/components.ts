@@ -1,8 +1,6 @@
 import { MantineThemeComponents } from "@mantine/styles/lib/theme/types/MantineTheme";
 import { blue_1, dark_2 } from "./colors";
 
-console.log(dark_2);
-
 export const components: MantineThemeComponents = {
     AppShell: {
         styles: {

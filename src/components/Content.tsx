@@ -1,24 +1,23 @@
 import { Box, Stack } from "@mantine/core";
 import { useState } from "react";
+import { IMovieCard } from "../types";
 import MovieFilterCard from "./MovieFilterCard";
 import Pagination from "./Pagination";
 
-const Content = ({}) => {
+type Props = {
+    movies: IMovieCard[];
+};
+
+const Content = ({ movies }: Props) => {
     const [activePage, setPage] = useState(1);
 
     return (
         <Stack>
             <Box>
-                <MovieFilterCard />
-                <MovieFilterCard />
-                <MovieFilterCard />
-                <MovieFilterCard />
-                <MovieFilterCard />
-                <MovieFilterCard />
-                <MovieFilterCard />
-                <MovieFilterCard />
-                <MovieFilterCard />
-                <MovieFilterCard />
+                {movies &&
+                    movies?.map(movie => {
+                        return <MovieFilterCard key={movie?.id} movie={movie} />;
+                    })}
             </Box>
             <Pagination page={activePage} onChange={() => setPage} total={500} />
         </Stack>

@@ -6,7 +6,7 @@ import { useState } from "react";
 const items = [
     { title: "Home", route: "/", icon: <IconHome size={23} /> },
     { title: "Movies", route: "/movies", icon: <IconMasksTheater size={23} /> },
-    { title: "Series", route: "/series", icon: <Icon24Hours size={23} /> },
+    { title: "TV Shows", route: "/tv", icon: <Icon24Hours size={23} /> },
     { title: "Cartoons", route: "/cartoons", icon: <IconMovie size={23} /> },
     { title: "Favorites", route: "/favorites", icon: <IconHeart size={23} /> },
 ];

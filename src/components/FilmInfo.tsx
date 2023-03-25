@@ -1,7 +1,6 @@
 import { Box, Button, CSSObject, Flex, Group, Image, List, MantineTheme, Stack, Text, Title } from "@mantine/core";
 import { IconBookmark, IconPlayerPlayFilled } from "@tabler/icons-react";
 import { dark_2, white_1, white_2 } from "../theme/colors";
-import { btnContained } from "../theme/styles";
 import Rating from "./Rating";
 
 const FilmInfo = ({}) => {
@@ -14,7 +13,7 @@ const FilmInfo = ({}) => {
             <Stack w='100%' display='block'>
                 <Title>Dog Gone 2023</Title>
                 <Group my={30}>
-                    <Button leftIcon={<IconPlayerPlayFilled fill={dark_2} size={16} />} radius='xl' sx={btnContained} px={20} py={12}>
+                    <Button leftIcon={<IconPlayerPlayFilled fill={dark_2} size={16} />} radius='xl' px={20} py={12}>
                         Watch
                     </Button>
                     <Button leftIcon={<IconBookmark fill={dark_2} size={18} />} radius='xl' sx={button} px={20} py={12}>

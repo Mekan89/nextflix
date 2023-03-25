@@ -15,7 +15,6 @@ const Header = ({}) => {
     const isMobile = useMediaQuery("(max-width:48em)");
 
     // const visible = useAtomValue(activeSearchAtom);
-    console.log(isMobile);
 
     return (
         <MantineHeader height={70}>
