@@ -4,7 +4,7 @@ import { useMediaQuery } from "@mantine/hooks";
 import { IconAdjustments } from "@tabler/icons-react";
 import { useAtomValue, useSetAtom } from "jotai";
 import { useRouter } from "next/router";
-import { filterAtom, query, queryType } from "../../atoms";
+import { filterAtom, page, query, queryType } from "../../atoms";
 import Content from "../../components/Content";
 import Filters from "../../components/Filters";
 import Modal from "../../components/Modal";
@@ -20,8 +20,8 @@ const Movie = ({}) => {
     const router = useRouter();
     const keyword = useAtomValue<string>(query);
     const type = useAtomValue(queryType);
-
-    const { movies, mutate, size, setSize, isValidating, isLoading } = useFetch(API.getMovieList(keyword, API[type]));
+    const pageTo = useAtomValue(page);
+    const { movies, isLoading } = useFetch(API.searchMovie(keyword, type, pageTo));
 
     // const url = requests[path];
     // const { data, error, isLoading } = useSWR(url, fetcher);

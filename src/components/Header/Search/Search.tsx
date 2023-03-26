@@ -1,10 +1,10 @@
 import { ActionIcon, Box, createStyles, Group, Input, Stack } from "@mantine/core";
 import { useClickOutside, useDebouncedValue, useMediaQuery } from "@mantine/hooks";
 import { IconChevronLeft, IconSearch, IconX } from "@tabler/icons-react";
-import { useAtom } from "jotai";
+import { useAtom, useAtomValue } from "jotai";
 import { useRouter } from "next/router";
 import { useState } from "react";
-import { activeSearchAtom, query, queryType } from "../../../atoms";
+import { activeSearchAtom, page, query, queryType } from "../../../atoms";
 import useFetch from "../../../hooks/useFetch";
 import API from "../../../services/tmdbWrapper";
 import { blue_1, gray_2 } from "../../../theme/colors";
@@ -62,8 +62,11 @@ const Search = ({}) => {
     const isMobile = useMediaQuery("(max-width:48em)");
     const [keyword, setKeyword] = useAtom(query);
     const [type, setType] = useAtom(queryType);
+    const pageTo = useAtomValue(page);
     const debouncedQuery = useDebouncedValue(keyword, 500);
-    const { movies, mutate, size, setSize, isValidating, isLoading } = useFetch(API.getMovieList(debouncedQuery[0], type));
+    const url = API.searchMovie(debouncedQuery[0], type);
+    const { movies, isLoading } = useFetch(url);
+
     const showOnly = keyword.trim() && opened && router.pathname == "/";
 
     console.log(ref);

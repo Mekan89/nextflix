@@ -9,6 +9,7 @@ import Rating from "./Rating";
 
 type Props = {
     movie: IMovieCard;
+    total_result: number;
 };
 
 const MovieFilterCard = ({ movie }: Props) => {

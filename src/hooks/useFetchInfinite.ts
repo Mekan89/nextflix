@@ -6,7 +6,7 @@ import { IMovie } from "../types";
 //     url:string
 // }
 
-const useFetch = (url: string) => {
+const useFetchInfinite = (url: string) => {
     const { data, mutate, size, setSize, isValidating, isLoading } = useSWRInfinite(index => `${url}&page=${index + 1}`, fetcher, {
         revalidateOnFocus: false,
     });
@@ -27,7 +27,9 @@ const useFetch = (url: string) => {
         )
         .flat();
 
+    console.log(movies);
+
     return { movies, mutate, size, setSize, isValidating, isLoading };
 };
 
-export default useFetch;
+export default useFetchInfinite;

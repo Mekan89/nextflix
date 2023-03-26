@@ -16,11 +16,10 @@ type Props = {
     setOpened: () => void;
 };
 
-// const SearchList = ({ activeTab, setActiveTab, isLoading, movies }: Props) => {
 const SearchList = ({ movies, setOpened }: Props) => {
     const router = useRouter();
-    const types = ["movie", "tv", "cartoons"];
-    const { classes, cx } = useStyles();
+    const types = ["movie", "tv", "animation"];
+    const { classes } = useStyles();
 
     const [type, setType] = useAtom(queryType);
 

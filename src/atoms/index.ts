@@ -3,6 +3,7 @@ import { atom } from "jotai";
 export const filterAtom = atom(false);
 export const queryType = atom("movie");
 export const query = atom("");
+export const page = atom(1);
 
 export const activeSearchAtom = atom(false);
 

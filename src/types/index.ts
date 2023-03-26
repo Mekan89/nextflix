@@ -55,6 +55,12 @@ export interface IMovieCard {
     description: string;
 }
 
+export interface IPagination {
+    page: number;
+    total_pages: number;
+    total_results: number;
+}
+
 // export interface IMovie {
 // 	ageRating: number;
 // 	alternativeName: string;
