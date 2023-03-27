@@ -33,11 +33,6 @@ const useFetch = (url: string) => {
     });
 
     const page_result = { page: data?.page, total_pages: data?.total_pages, total_results: data?.total_results };
-    console.log(page_result);
-
-    // const movies = { ...data_transform };
-
-    console.log(movies);
 
     return { movies, isLoading, page_result };
 };

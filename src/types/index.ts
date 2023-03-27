@@ -27,7 +27,10 @@ export type IconProps = {
 export interface IMovie {
     adult: boolean;
     backdrop_path: string;
-    genre_ids: number[];
+    budget: number;
+    revenue: number;
+    runtime: number;
+    genres: { id: number; name: string }[];
     id: number;
     media_type: string;
     original_language: string;
@@ -38,11 +41,12 @@ export interface IMovie {
     release_date: string;
     first_air_date: string;
     title: string;
-    name: String;
+    name: string;
     video: boolean;
     vote_average: number;
     vote_count: number;
     description: string;
+    production_countries: { name: string }[];
 }
 
 export interface IMovieCard {
@@ -53,12 +57,6 @@ export interface IMovieCard {
     vote: number;
     type: string;
     description: string;
-}
-
-export interface IPagination {
-    page: number;
-    total_pages: number;
-    total_results: number;
 }
 
 // export interface IMovie {

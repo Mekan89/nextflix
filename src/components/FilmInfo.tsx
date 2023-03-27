@@ -1,17 +1,51 @@
 import { Box, Button, CSSObject, Flex, Group, Image, List, MantineTheme, Stack, Text, Title } from "@mantine/core";
 import { IconBookmark, IconPlayerPlayFilled } from "@tabler/icons-react";
+import Link from "next/link";
+import { useRouter } from "next/router";
+import { TMDB_IMAGE_ENDPOINT } from "../services/tmdbWrapper";
 import { dark_2, white_1, white_2 } from "../theme/colors";
+import { IMovie } from "../types";
 import Rating from "./Rating";
 
-const FilmInfo = ({}) => {
+type Props = {
+    data: IMovie;
+};
+
+const FilmInfo = ({ data }: Props) => {
+    const router = useRouter();
+
+    const {
+        backdrop_path,
+        budget,
+        revenue,
+        runtime,
+        genres,
+        id,
+        media_type,
+        original_language,
+        original_title,
+        overview,
+        popularity,
+        poster_path,
+        release_date,
+        first_air_date,
+        title,
+        name,
+        video,
+        vote_average,
+        vote_count,
+        description,
+        production_countries,
+    } = data;
+
     return (
         <Flex direction={{ base: "column", sm: "row" }} gap={{ base: 21, md: 42 }} mb={20} mih={{ base: 950, sm: 500 }}>
             <Box pos='relative'>
-                <Image src='/black.jpg' alt='Norway' radius='md' width={300} height={450} />
-                <Rating rating={4.5} className={rating} />
+                <Image src={`${TMDB_IMAGE_ENDPOINT}${backdrop_path}`} alt={title} radius='md' width={300} height={450} />
+                <Rating rating={+vote_average.toFixed(1)} className={rating} />
             </Box>
             <Stack w='100%' display='block'>
-                <Title>Dog Gone 2023</Title>
+                <Title>{original_title}</Title>
                 <Group my={30}>
                     <Button leftIcon={<IconPlayerPlayFilled fill={dark_2} size={16} />} radius='xl' px={20} py={12}>
                         Watch
@@ -30,23 +64,25 @@ const FilmInfo = ({}) => {
                             Country :
                         </Text>
                         <Text span c={dark_2}>
-                            USA
+                            {production_countries[0].name}
                         </Text>
                     </List.Item>
                     <List.Item>
                         <Text span w={170} opacity={0.5} display='inline-block'>
                             Genre:
                         </Text>
-                        <Text span c={dark_2}>
-                            fantastic, drama
-                        </Text>
+                        {genres.map(({ id, name }) => (
+                            <Link key={id} href={`/movies?{id}`} color={dark_2}>
+                                {name + " "}
+                            </Link>
+                        ))}
                     </List.Item>
                     <List.Item>
                         <Text span w={170} opacity={0.5} display='inline-block'>
-                            Age:
+                            Release date:
                         </Text>
                         <Text span c={dark_2}>
-                            USA
+                            {release_date}
                         </Text>
                     </List.Item>
                     <List.Item>
@@ -54,7 +90,7 @@ const FilmInfo = ({}) => {
                             Budget:
                         </Text>
                         <Text span c={dark_2}>
-                            USA
+                            {budget.toLocaleString()}
                         </Text>
                     </List.Item>
                     <List.Item>
@@ -62,7 +98,7 @@ const FilmInfo = ({}) => {
                             Length:
                         </Text>
                         <Text span c={dark_2}>
-                            USA
+                            {runtime} minutes
                         </Text>
                     </List.Item>
                     <List.Item>
@@ -70,55 +106,7 @@ const FilmInfo = ({}) => {
                             USA income:
                         </Text>
                         <Text span c={dark_2}>
-                            USA
-                        </Text>
-                    </List.Item>
-                    <List.Item>
-                        <Text span w={170} opacity={0.5} display='inline-block'>
-                            World income:
-                        </Text>
-                        <Text span c={dark_2}>
-                            USA
-                        </Text>
-                    </List.Item>
-                    <List.Item>
-                        <Text span w={170} opacity={0.5} display='inline-block'>
-                            World income:
-                        </Text>
-                        <Text span c={dark_2}>
-                            USA
-                        </Text>
-                    </List.Item>
-                    <List.Item>
-                        <Text span w={170} opacity={0.5} display='inline-block'>
-                            World income:
-                        </Text>
-                        <Text span c={dark_2}>
-                            USA
-                        </Text>
-                    </List.Item>
-                    <List.Item>
-                        <Text span w={170} opacity={0.5} display='inline-block'>
-                            World income:
-                        </Text>
-                        <Text span c={dark_2}>
-                            USA
-                        </Text>
-                    </List.Item>
-                    <List.Item>
-                        <Text span w={170} opacity={0.5} display='inline-block'>
-                            World income:
-                        </Text>
-                        <Text span c={dark_2}>
-                            USA
-                        </Text>
-                    </List.Item>
-                    <List.Item>
-                        <Text span w={170} opacity={0.5} display='inline-block'>
-                            World income:
-                        </Text>
-                        <Text span c={dark_2}>
-                            USA
+                            {revenue.toLocaleString()}
                         </Text>
                     </List.Item>
                 </List>

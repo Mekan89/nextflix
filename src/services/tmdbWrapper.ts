@@ -26,8 +26,7 @@ const API = {
     animation: `${TMDB_ENDPOINT}/discover/movie?api_key=${process.env.NEXT_PUBLIC_API_KEY}&with_genres=16`,
     fantasy: `${TMDB_ENDPOINT}/discover/movie?api_key=${process.env.NEXT_PUBLIC_API_KEY}&with_genres=14`,
     romance: `${TMDB_ENDPOINT}/discover/movie?api_key=${process.env.NEXT_PUBLIC_API_KEY}&with_genres=10749`,
-    // searchMovie: (query: string, type = "movie") => `${TMDB_ENDPOINT}/search/${type}?api_key=${process.env.NEXT_PUBLIC_API_KEY}&query=${query}`,
-    // searchMovie: (query: string, type = "movie", page = "1") => `${TMDB_ENDPOINT}/search/${type}?api_key=${process.env.NEXT_PUBLIC_API_KEY}&query=${query}&page=${page}`,
+    getSingleMovie: (id: string) => `${TMDB_ENDPOINT}/movie/${id}?api_key=${process.env.NEXT_PUBLIC_API_KEY}`,
     searchMovie: (query: string, type = "movie", page = "1") => `${TMDB_ENDPOINT}/search/movie?${type}&api_key=${process.env.NEXT_PUBLIC_API_KEY}&query=${query}&page=${page}`,
     getMovieList: (query: string, type = "movie") => `${TMDB_ENDPOINT}/search/${type}?api_key=${process.env.NEXT_PUBLIC_API_KEY}&query=${query}`,
 };

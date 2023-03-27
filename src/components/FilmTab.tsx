@@ -2,10 +2,17 @@ import { ActionIcon, createStyles, Flex, Group, Image, Tabs, Text, Title } from 
 import { IconChevronLeft, IconChevronRight } from "@tabler/icons-react";
 import { useState } from "react";
 import { blue_1, white_1 } from "../theme/colors";
+import { IMovie } from "../types";
 
-const FilmTab = ({}) => {
+type Props = {
+    data: IMovie;
+};
+
+const FilmTab = ({ data }: Props) => {
     const [activeTab, setActiveTab] = useState<string | null>("description");
     const { classes, cx } = useStyles();
+
+    const { overview } = data;
 
     return (
         <Tabs
@@ -25,7 +32,7 @@ const FilmTab = ({}) => {
             </Tabs.List>
 
             <Tabs.Panel value='description' py={20}>
-                <Text c='dimmed'>Парень и его родители организуют поиски любимого пса, чтобы успеть дать ему жизненно необходимое лекарство.</Text>
+                <Text c='dimmed'>{overview}</Text>
             </Tabs.Panel>
 
             <Tabs.Panel value='actors' py={20} sx={{ overflowX: "hidden" }}>

@@ -10,7 +10,6 @@ const Hero = ({}) => {
     const { data, isLoading } = useSWR(API.topRated, fetcher);
 
     const random = Math.floor(Math.random() * 20);
-    console.log(data);
 
     if (isLoading) {
         return <LoadingOverlay visible />;
@@ -23,7 +22,6 @@ const Hero = ({}) => {
             <Container px={{ base: 20, sm: 40 }}>
                 <Stack spacing={35} c='white' className={classes.heroContent}>
                     <Title order={1}>{title}</Title>
-                    {/* {movie? movie.overview : ""} */}
                     <Text>{overview}</Text>
                     <Button component={Link} href={`film/${id}`} rightIcon={<IconArrowRight size={19} />}>
                         More
